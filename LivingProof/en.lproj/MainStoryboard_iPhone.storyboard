@@ -115,10 +115,26 @@
                     <navigationItem key="navigationItem" id="iQt-KY-fSg"/>
                     <connections>
                         <outlet property="gridView" destination="Sx9-mE-7gC" id="Kxd-fz-Wm3"/>
+                        <segue destination="bYn-Lc-Fzu" kind="push" id="0hv-SL-9hQ"/>
                     </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="938" y="-23"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="lnM-Mo-Dac">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UXY-uU-zCR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="bYn-Lc-Fzu" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wim-bB-PFm">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="mlK-oQ-5U4"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1465" y="-23"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Hol-J5-aqJ">

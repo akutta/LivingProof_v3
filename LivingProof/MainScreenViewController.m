@@ -176,6 +176,12 @@
 - (void)viewWillAppear:(BOOL)animated {
     
     self.navigationController.navigationBarHidden = YES;
+    
+    
+    if ( UIInterfaceOrientationIsPortrait(self.interfaceOrientation) ) {
+        [self displayPortrait];
+    } else
+        [self displayLandscape];
 }
 
 - (void)viewDidLoad
@@ -186,10 +192,6 @@
     
     self.view.frame = [[UIScreen mainScreen] applicationFrame];
     
-    if ( UIInterfaceOrientationIsPortrait(self.interfaceOrientation) ) {
-        [self displayPortrait];
-    } else
-        [self displayLandscape];
     
     
     [self setupImages];
