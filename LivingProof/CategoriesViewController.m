@@ -86,7 +86,6 @@
 #pragma mark AQGridView
 
 - (NSUInteger) numberOfItemsInGridView: (AQGridView *) gridView {
-    NSLog(@"Num Categories:  %d",[_categories count]);
     return [_categories count]; 
 }
 
@@ -99,8 +98,6 @@
 
 
 - (AQGridViewCell *) gridView: (AQGridView *)aGridView cellForItemAtIndex: (NSUInteger) index {
-    NSLog(@"cellForItemAtIndex:  %d",index);
-    
     static NSString *CategoryGridCellIdentifier = @"CategoryGridCellIdentifier";
     
     VideoGridCell *cell = (VideoGridCell *)[aGridView dequeueReusableCellWithIdentifier:CategoryGridCellIdentifier];

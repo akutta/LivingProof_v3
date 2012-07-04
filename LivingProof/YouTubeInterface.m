@@ -326,7 +326,6 @@ NSInteger compareViewCount(NSDictionary *firstVideo, NSDictionary *secondVideo, 
 
 
 -(NSArray*)getYouTubeArray:(NSString*)filter {
-
     if ( [self isInternetConnected] == NO )
         [self loadVideoFeed];
     
@@ -349,7 +348,7 @@ NSInteger compareViewCount(NSDictionary *firstVideo, NSDictionary *secondVideo, 
     for ( NSDictionary* videoInfo in YouTubeArray ) {
         if ( [[videoInfo objectForKey:@"category"] caseInsensitiveCompare:filter] == NSOrderedSame ) {
             [tmpValue addObject:videoInfo];
-        } else if ( [[videoInfo objectForKey:@"age"] caseInsensitiveCompare:filter] == NSOrderedSame ) {
+        } else if ( [[(NSDictionary*)[videoInfo objectForKey:@"parsedKeys"] objectForKey:@"age"] caseInsensitiveCompare:filter] == NSOrderedSame ) {
             [tmpValue addObject:videoInfo];
         } else if ( [[((NSDictionary*)[videoInfo objectForKey:@"parsedKeys"]) objectForKey:@"name"] caseInsensitiveCompare:filter] == NSOrderedSame ) {
             [tmpValue addObject:videoInfo];
@@ -463,63 +462,31 @@ NSInteger compareViewCount(NSDictionary *firstVideo, NSDictionary *secondVideo, 
         _Names = [self getAges];
     }
     
-    videos = [self getYouTubeArray:nil];;
-    
-    for ( NSDictionary* curVideo in videos )
-    {
-        BOOL bFound = NO;
-        NSString *name = [[curVideo objectForKey:@"parsedKeys"] objectForKey:@"name"];
-        for ( NSDictionary* survivor in survivors )
-        {
-            if ( ![(NSString*)[survivor objectForKey:@"name"] compare:name] ) {
-                bFound = YES;
-            }
-        }
-        
-        if ( !bFound ) {
-            NSMutableDictionary *tmp = [[NSMutableDictionary alloc] initWithCapacity:2];
-            NSURL *url = [curVideo objectForKey:@"thumbnailURL"];
-            [tmp setValue:name forKey:@"name"];
-            [tmp setValue:url forKey:@"thumbnailURL"];
-            [survivors addObject:[tmp copy]];
-        }
-    }
     
     for ( NSString* name in _Names ) {
-        for ( NSDictionary* survivor in survivors ) {
-            if ( getCategories ) {
-                
+        videos = [self getYouTubeArray:name];
+        for ( NSDictionary* curVideo in videos )
+        {
+            BOOL bFound = NO;
+            NSString *survivorName = [[curVideo objectForKey:@"parsedKeys"] objectForKey:@"name"];
+            for ( NSDictionary* survivor in survivors )
+            {
+                if ( [(NSString*)[[curVideo objectForKey:@"parsedKeys"] objectForKey:@"name"] compare:survivorName] ) {
+                    bFound = YES;
+                }
+            }
+            
+            if ( !bFound ) {
+                NSMutableDictionary *tmp = [[NSMutableDictionary alloc] initWithCapacity:2];
+                NSURL *url = [curVideo objectForKey:@"thumbnailURL"];
+                [tmp setValue:name forKey:@"name"];
+                [tmp setValue:url forKey:@"thumbnailURL"];
+                [survivors addObject:[tmp copy]];
+                break;
             }
         }
     }
     
-    
-//    for ( NSString* name in _Names ) {
-//        Image *tmp = [[Image alloc] init];
-//        if ( index >= [survivors count] ) {
-//            tmp.imageData = nil;
-//            tmp.imageView = nil;
-//        } else {
-//            Survivor *surv = [survivors objectAtIndex:index];            // Reduces the amount of work that the iPad needs to do
-//            // Without doing it this way, the application can lag and slightly freeze
-//            SDWebImageManager *manager = [SDWebImageManager sharedManager];
-//            UIImage *cachedImage = [manager imageWithURL:surv.url];
-//            if ( cachedImage )
-//                tmp.imageData = cachedImage;
-//            else
-//                [tmp.imageView setImageWithURL:surv.url placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
-//            
-//            tmp.thumbnailURL = surv.url;
-//        }
-//        tmp.name = name;
-//        [_survivorImages addObject:tmp];
-//        
-//        //[tmp release];
-//        index++;
-//    }
-
-    
-    //[_Names release];
     return [survivors copy];
 }
 
