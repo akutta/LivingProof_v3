@@ -12,16 +12,9 @@
 //#import "Utilities.h"
 
 @interface AgesViewController : UIViewController <AQGridViewDelegate, AQGridViewDataSource> {
-    NSArray *_imageNames;
-    NSArray *_ageNames;
     NSArray *_ages;
-    
     AQGridView *_gridView;
-//    Utilities *_utilities;
-    
-    
-    YouTubeInterface *youTube;
-    
+    YouTubeInterface *youTube;    
 }
 @property (nonatomic, retain) IBOutlet AQGridView *gridView;
 

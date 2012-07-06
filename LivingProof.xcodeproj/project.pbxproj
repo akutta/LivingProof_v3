@@ -11,6 +11,7 @@
 		A92765C615A764790028B21A /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = A92765C215A764790028B21A /* placeholder.png */; };
 		A92765C715A764790028B21A /* WelcomeScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = A92765C315A764790028B21A /* WelcomeScreen.png */; };
 		A92765C815A764790028B21A /* WelcomeScreenRotated.png in Resources */ = {isa = PBXBuildFile; fileRef = A92765C415A764790028B21A /* WelcomeScreenRotated.png */; };
+		A92765CB15A78B940028B21A /* VideoSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A92765CA15A78B940028B21A /* VideoSelectionViewController.m */; };
 		A999A994159ED79200112FC6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A999A993159ED79200112FC6 /* UIKit.framework */; };
 		A999A996159ED79200112FC6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A999A995159ED79200112FC6 /* Foundation.framework */; };
 		A999A998159ED79200112FC6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A999A997159ED79200112FC6 /* CoreGraphics.framework */; };
@@ -182,6 +183,8 @@
 		A92765C215A764790028B21A /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		A92765C315A764790028B21A /* WelcomeScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WelcomeScreen.png; sourceTree = "<group>"; };
 		A92765C415A764790028B21A /* WelcomeScreenRotated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WelcomeScreenRotated.png; sourceTree = "<group>"; };
+		A92765C915A78B940028B21A /* VideoSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoSelectionViewController.h; sourceTree = "<group>"; };
+		A92765CA15A78B940028B21A /* VideoSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoSelectionViewController.m; sourceTree = "<group>"; };
 		A999A98F159ED79200112FC6 /* LivingProof.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LivingProof.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A999A993159ED79200112FC6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A999A995159ED79200112FC6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -602,6 +605,8 @@
 				A99E3586159EE9D500E89C28 /* AgesViewController.m */,
 				A99E358815A00C4400E89C28 /* CategoriesViewController.h */,
 				A99E358915A00C4400E89C28 /* CategoriesViewController.m */,
+				A92765C915A78B940028B21A /* VideoSelectionViewController.h */,
+				A92765CA15A78B940028B21A /* VideoSelectionViewController.m */,
 			);
 			path = LivingProof;
 			sourceTree = "<group>";
@@ -1374,6 +1379,7 @@
 				A99E3587159EE9D500E89C28 /* AgesViewController.m in Sources */,
 				A99E358A15A00C4400E89C28 /* CategoriesViewController.m in Sources */,
 				A99E359415A3EFBA00E89C28 /* VideoGridCell.m in Sources */,
+				A92765CB15A78B940028B21A /* VideoSelectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

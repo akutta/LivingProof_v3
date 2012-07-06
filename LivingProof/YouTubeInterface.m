@@ -339,6 +339,7 @@ NSInteger compareViewCount(NSDictionary *firstVideo, NSDictionary *secondVideo, 
     if ( filter == nil ) {
         return [YouTubeArray copy];
     }
+
     
     // Create Mutable Array
     //NSMutableArray *tmpValue = [[[NSMutableArray alloc] init] autorelease];

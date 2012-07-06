@@ -9,6 +9,7 @@
 #import "AgesViewController.h"
 #import "YouTubeInterface.h"
 #import "VideoGridCell.h"
+#import "VideoSelectionViewController.h"
 
 
 #import "SDWebImageManager.h"
@@ -97,9 +98,7 @@
 }
 
 
-- (AQGridViewCell *) gridView: (AQGridView *)aGridView cellForItemAtIndex: (NSUInteger) index {
-    NSLog(@"cellForItemAtIndex:  %d",index);
-    
+- (AQGridViewCell *) gridView: (AQGridView *)aGridView cellForItemAtIndex: (NSUInteger) index {    
     static NSString *AgeGridCellIdentifier = @"AgeGridCellIdentifier";
     
     VideoGridCell *cell = (VideoGridCell *)[aGridView dequeueReusableCellWithIdentifier:AgeGridCellIdentifier];
@@ -126,5 +125,35 @@
 
     return cell;
 }
+
+
+- (void)gridView:(AQGridView *)gridView didSelectItemAtIndex:(NSUInteger)index
+{
+    //VideoGridCell *cell = [(VideoGridCell*)[gridView cellForItemAtIndex:index] autorelease];
+    VideoGridCell *cell = (VideoGridCell*)[gridView cellForItemAtIndex:index];
+    VideoSelectionViewController *nextView = [self.storyboard instantiateViewControllerWithIdentifier:@"VideoSelectionViewController"];
+    
+    [nextView setFilter:cell.title.text];
+    [nextView setNavBackText:@"Ages"];
+    
+    // Oddly enough, this is the backButton for the nextView 
+    // Wierd stuff going on here
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Ages" style:UIBarButtonItemStylePlain target:nil action:nil];
+    [self.navigationItem setBackBarButtonItem:backButton];
+//    nextView
+    
+    [gridView deselectItemAtIndex:index animated:NO];
+    [self.navigationController pushViewController:nextView animated:YES];
+    
+//    VideoSelectionViewController *nextView = [[VideoSelectionViewController alloc] initWithNibName:@"VideoSelectionViewController" 
+//                                                                                            bundle:nil 
+//                                                                                          category:cell.title 
+//                                                                                            filter:nil
+//                                                                                        buttonText:@"Ages"];    // Change to Title of the selected
+    
+    
+    
+}
+
 
 @end
