@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A92765C515A764790028B21A /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = A92765C115A764790028B21A /* Background.png */; };
+		A92765C615A764790028B21A /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = A92765C215A764790028B21A /* placeholder.png */; };
+		A92765C715A764790028B21A /* WelcomeScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = A92765C315A764790028B21A /* WelcomeScreen.png */; };
+		A92765C815A764790028B21A /* WelcomeScreenRotated.png in Resources */ = {isa = PBXBuildFile; fileRef = A92765C415A764790028B21A /* WelcomeScreenRotated.png */; };
 		A999A994159ED79200112FC6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A999A993159ED79200112FC6 /* UIKit.framework */; };
 		A999A996159ED79200112FC6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A999A995159ED79200112FC6 /* Foundation.framework */; };
 		A999A998159ED79200112FC6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A999A997159ED79200112FC6 /* CoreGraphics.framework */; };
@@ -174,6 +178,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A92765C115A764790028B21A /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
+		A92765C215A764790028B21A /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
+		A92765C315A764790028B21A /* WelcomeScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WelcomeScreen.png; sourceTree = "<group>"; };
+		A92765C415A764790028B21A /* WelcomeScreenRotated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WelcomeScreenRotated.png; sourceTree = "<group>"; };
 		A999A98F159ED79200112FC6 /* LivingProof.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LivingProof.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A999A993159ED79200112FC6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A999A995159ED79200112FC6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -529,6 +537,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A92765BF15A764490028B21A /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				A92765C115A764790028B21A /* Background.png */,
+				A92765C215A764790028B21A /* placeholder.png */,
+				A92765C315A764790028B21A /* WelcomeScreen.png */,
+				A92765C415A764790028B21A /* WelcomeScreenRotated.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		A999A984159ED79200112FC6 = {
 			isa = PBXGroup;
 			children = (
@@ -564,6 +583,7 @@
 		A999A999159ED79200112FC6 /* LivingProof */ = {
 			isa = PBXGroup;
 			children = (
+				A92765BF15A764490028B21A /* Images */,
 				A99E337D159EDBF300E89C28 /* lib */,
 				A999A9BD159EDA1900112FC6 /* YouTubeInterface.h */,
 				A999A9BE159EDA1900112FC6 /* YouTubeInterface.m */,
@@ -1188,6 +1208,10 @@
 				A999A9A7159ED79200112FC6 /* MainStoryboard_iPhone.storyboard in Resources */,
 				A999A9AA159ED79200112FC6 /* MainStoryboard_iPad.storyboard in Resources */,
 				A99E3573159EDBF300E89C28 /* SVProgressHUD.bundle in Resources */,
+				A92765C515A764790028B21A /* Background.png in Resources */,
+				A92765C615A764790028B21A /* placeholder.png in Resources */,
+				A92765C715A764790028B21A /* WelcomeScreen.png in Resources */,
+				A92765C815A764790028B21A /* WelcomeScreenRotated.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
