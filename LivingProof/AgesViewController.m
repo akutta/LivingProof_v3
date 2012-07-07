@@ -41,6 +41,8 @@
 {
     self.view.frame = [[UIScreen mainScreen] applicationFrame];    
     
+    self.gridView.frame = self.view.frame;
+    
     self.gridView.backgroundColor = [UIColor clearColor];
     [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:26.0/255.0 green:32.0/255.0 blue:133.0/255.0 alpha:1.0]];
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"Background.png"]];
@@ -140,19 +142,9 @@
     // Wierd stuff going on here
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Ages" style:UIBarButtonItemStylePlain target:nil action:nil];
     [self.navigationItem setBackBarButtonItem:backButton];
-//    nextView
     
     [gridView deselectItemAtIndex:index animated:NO];
     [self.navigationController pushViewController:nextView animated:YES];
-    
-//    VideoSelectionViewController *nextView = [[VideoSelectionViewController alloc] initWithNibName:@"VideoSelectionViewController" 
-//                                                                                            bundle:nil 
-//                                                                                          category:cell.title 
-//                                                                                            filter:nil
-//                                                                                        buttonText:@"Ages"];    // Change to Title of the selected
-    
-    
-    
 }
 
 
