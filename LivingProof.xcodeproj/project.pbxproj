@@ -12,6 +12,8 @@
 		A92765C715A764790028B21A /* WelcomeScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = A92765C315A764790028B21A /* WelcomeScreen.png */; };
 		A92765C815A764790028B21A /* WelcomeScreenRotated.png in Resources */ = {isa = PBXBuildFile; fileRef = A92765C415A764790028B21A /* WelcomeScreenRotated.png */; };
 		A92765CB15A78B940028B21A /* VideoSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A92765CA15A78B940028B21A /* VideoSelectionViewController.m */; };
+		A92765CE15A7C3120028B21A /* VideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A92765CD15A7C3120028B21A /* VideoPlayerViewController.m */; };
+		A92765D215A7C9840028B21A /* backgroundVideoDetail.png in Resources */ = {isa = PBXBuildFile; fileRef = A92765D115A7C9840028B21A /* backgroundVideoDetail.png */; };
 		A999A994159ED79200112FC6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A999A993159ED79200112FC6 /* UIKit.framework */; };
 		A999A996159ED79200112FC6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A999A995159ED79200112FC6 /* Foundation.framework */; };
 		A999A998159ED79200112FC6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A999A997159ED79200112FC6 /* CoreGraphics.framework */; };
@@ -185,6 +187,9 @@
 		A92765C415A764790028B21A /* WelcomeScreenRotated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WelcomeScreenRotated.png; sourceTree = "<group>"; };
 		A92765C915A78B940028B21A /* VideoSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoSelectionViewController.h; sourceTree = "<group>"; };
 		A92765CA15A78B940028B21A /* VideoSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoSelectionViewController.m; sourceTree = "<group>"; };
+		A92765CC15A7C3120028B21A /* VideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoPlayerViewController.h; path = ../VideoPlayerViewController.h; sourceTree = "<group>"; };
+		A92765CD15A7C3120028B21A /* VideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoPlayerViewController.m; path = ../VideoPlayerViewController.m; sourceTree = "<group>"; };
+		A92765D115A7C9840028B21A /* backgroundVideoDetail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundVideoDetail.png; sourceTree = "<group>"; };
 		A999A98F159ED79200112FC6 /* LivingProof.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LivingProof.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A999A993159ED79200112FC6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A999A995159ED79200112FC6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -543,6 +548,7 @@
 		A92765BF15A764490028B21A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A92765D115A7C9840028B21A /* backgroundVideoDetail.png */,
 				A92765C115A764790028B21A /* Background.png */,
 				A92765C215A764790028B21A /* placeholder.png */,
 				A92765C315A764790028B21A /* WelcomeScreen.png */,
@@ -607,6 +613,8 @@
 				A99E358915A00C4400E89C28 /* CategoriesViewController.m */,
 				A92765C915A78B940028B21A /* VideoSelectionViewController.h */,
 				A92765CA15A78B940028B21A /* VideoSelectionViewController.m */,
+				A92765CC15A7C3120028B21A /* VideoPlayerViewController.h */,
+				A92765CD15A7C3120028B21A /* VideoPlayerViewController.m */,
 			);
 			path = LivingProof;
 			sourceTree = "<group>";
@@ -1217,6 +1225,7 @@
 				A92765C615A764790028B21A /* placeholder.png in Resources */,
 				A92765C715A764790028B21A /* WelcomeScreen.png in Resources */,
 				A92765C815A764790028B21A /* WelcomeScreenRotated.png in Resources */,
+				A92765D215A7C9840028B21A /* backgroundVideoDetail.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1380,6 +1389,7 @@
 				A99E358A15A00C4400E89C28 /* CategoriesViewController.m in Sources */,
 				A99E359415A3EFBA00E89C28 /* VideoGridCell.m in Sources */,
 				A92765CB15A78B940028B21A /* VideoSelectionViewController.m in Sources */,
+				A92765CE15A7C3120028B21A /* VideoPlayerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

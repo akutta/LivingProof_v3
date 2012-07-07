@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import "VideoPlayerViewController.h"
 #import "VideoSelectionViewController.h"
 #import "VideoGridCell.h"
 #import "SDWebImageManager.h"
@@ -18,15 +19,6 @@
 @implementation VideoSelectionViewController
 
 @synthesize gridView, navBackText, filter;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)filterVideos {
     if ( navBackText != @"Ages" ) return;
@@ -157,10 +149,13 @@
         UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
         [self.navigationItem setBackBarButtonItem:backButton];
         
+        VideoPlayerViewController *nextView = [self.storyboard instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];        
+        [nextView setCurVideo:[videos objectAtIndex:index]];
+        [nextView setRelatedVideos:videos];
+        
         [gridView deselectItemAtIndex:index animated:NO];
+        [self.navigationController pushViewController:nextView animated:NO];
     }
-    
-    
 }
 
 

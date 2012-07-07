@@ -110,11 +110,12 @@
     CGFloat imageHeightToWidth = imageSize.height/imageSize.width;
     
     CGRect bounds;
-    if ( cellIdentifier == @"VideoGridCellIdentifier" ) {
+    if ( cellIdentifier == @"VideoPlayerGridCellIdentifier" ) {
         bounds = CGRectInset(self.contentView.bounds, 5.0, 5.0);
     } else {
         bounds = CGRectInset(self.contentView.bounds, 10.0, 10.0);
     }
+    bounds = CGRectInset(self.contentView.bounds, 10.0, 10.0);
     CGRect frame;
     [imageView sizeToFit];
     // get current frame

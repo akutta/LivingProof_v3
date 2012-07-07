@@ -95,6 +95,21 @@
             </objects>
             <point key="canvasLocation" x="938" y="577"/>
         </scene>
+        <!--Video Player View Controller-->
+        <scene sceneID="EF3-Al-wWA">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2NM-md-ah3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="VideoPlayerViewController" id="QPd-8H-Ghn" customClass="VideoPlayerViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1z6-Wv-Tx2">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1458" y="569"/>
+        </scene>
         <!--Ages View Controller-->
         <scene sceneID="Atu-kV-inX">
             <objects>
@@ -186,6 +201,28 @@
                 <relationship kind="outlet" name="loadingLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="sortAge" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="sortCategory" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="VideoPlayerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideoPlayerViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="_gridView" candidateClass="AQGridView"/>
+                <relationship kind="outlet" name="age" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ageLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="childrenLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="childrenStatus" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="employentLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="employmentStatus" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="gridView" candidateClass="AQGridView"/>
+                <relationship kind="outlet" name="maritalStatus" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="maritalStatusLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="name" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="survivorshipLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="survivorshipLength" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="treatment" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="treatmentLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="videoTitle" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="VideoSelectionViewController" superclassName="UIViewController">
