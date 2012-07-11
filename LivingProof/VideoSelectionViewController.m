@@ -81,7 +81,16 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    // Prevent iPhone orientation rotation
+    if ( [[[UIDevice currentDevice] name] hasPrefix:@"iPhone"] ) {
+        if ( interfaceOrientation == UIInterfaceOrientationPortrait || 
+            interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
+        {
+            return YES;
+        }
+        return NO;
+    }
+    return YES;
 }
 
 
@@ -142,7 +151,7 @@
         // Wierd stuff going on here
         UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
         [self.navigationItem setBackBarButtonItem:backButton];
-    
+        
         [gridView deselectItemAtIndex:index animated:NO];
         [self.navigationController pushViewController:nextView animated:YES];
     } else {

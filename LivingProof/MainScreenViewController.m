@@ -224,7 +224,7 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
+{   
     // Return YES for supported orientations
     [UIView setAnimationsEnabled:NO];
     

@@ -27,8 +27,13 @@
     IBOutlet UILabel *maritalStatusLabel;
     IBOutlet UILabel *employentLabel;
     IBOutlet UILabel *childrenLabel;
-    
     IBOutlet AQGridView* _gridView;
+    
+    // iPhone View Only
+    UIButton *infoButton;
+    UILabel *relatedVideoLabel;
+    IBOutlet UIView *bottomMenu;
+    BOOL bDoOnce;
 }
 
 @property (retain, nonatomic) UIWebView* videoView;
