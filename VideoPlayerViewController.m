@@ -35,6 +35,8 @@
 
 - (void)viewDidLoad
 {
+    [UIView setAnimationsEnabled:YES];
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
@@ -275,6 +277,10 @@
     }
 }
 
+-(void)finishedAnimation {
+    [UIView setAnimationsEnabled:NO];
+}
+
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     NSSet *allTouches = [event allTouches]; 
@@ -282,10 +288,20 @@
     { 
         CGPoint location = [touch locationInView:bottomMenu];
         if ( location.y >= 0 ) {
+            
+            [UIView setAnimationsEnabled:YES];
+            [UIView beginAnimations:nil context:nil];
+            [UIView setAnimationDuration:1.0];
+            [UIView setAnimationBeginsFromCurrentState:YES];
+            [UIView  setAnimationDelegate:self];
+            [UIView setAnimationDidStopSelector:@selector(finishedAnimation)];
+            [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+            
             // bottomMenu y locations:
             //     Retracted = self.view.frame.size.height - 25;
             //     Maximum =   self.view.frame.size.height - bottomMenu.frame.size.height
             CGRect frame  = bottomMenu.frame;
+            
             if ( frame.origin.y == self.view.frame.size.height - 25 ) {
                 frame.origin.y = self.view.frame.size.height - frame.size.height;
                 [relatedVideoLabel setText:@"Click to Retract Menu"];
@@ -294,6 +310,8 @@
                 [relatedVideoLabel setText:@"Click for Related Videos"];                
             }
             bottomMenu.frame = frame;
+            [bottomMenu layoutSubviews];
+            [UIView commitAnimations];
         }
     }
 }
