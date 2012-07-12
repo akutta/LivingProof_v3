@@ -61,15 +61,16 @@
             [window addSubview:view];
         }
         bDoOnce = true;
-    } else {
+    } else {        [self setupGridView:12.0 borderWidth:2.0];
+        
+        [self updateLabels];    
+        [self.gridView reloadData];
+        [self updateLayout:[UIApplication sharedApplication].statusBarOrientation];
+        [self updateLayout_iPad:[UIApplication sharedApplication].statusBarOrientation];
         CGRect frame = _gridView.frame;
         frame.size = CGSizeMake(617, 195);
         _gridView.frame = frame;
-        [self setupGridView:12.0 borderWidth:2.0];
-        
-        [self updateLabels];    
-        [self updateLayout:[UIApplication sharedApplication].statusBarOrientation];
-        [self.gridView reloadData];
+
     }
 }
 
