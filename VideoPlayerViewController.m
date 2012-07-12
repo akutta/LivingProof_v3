@@ -123,6 +123,9 @@
 
 -(void) updateYoutubeVideo:(UIInterfaceOrientation)orientation {
     if ( [[[UIDevice currentDevice] name] hasPrefix:@"iPhone"] ) {
+        [self embedYouTube:[curVideo objectForKey:@"url"] frame:CGRectMake(5, 5, self.view.frame.size.width-10, self.view.frame.size.height-45)];
+        
+        [self.view bringSubviewToFront:bottomMenu];
     } else {
         [self updateYoutubeVideo_iPad:orientation];
     }
@@ -270,6 +273,10 @@
             self.gridView.delegate = self;
             self.gridView.dataSource = self;
             [self.gridView reloadData];
+            
+            // Display YouTube Video 
+            [self updateYoutubeVideo:[UIApplication sharedApplication].statusBarOrientation];
+            
         }
     } else {
         [self updateLayout_iPad:orientation];
