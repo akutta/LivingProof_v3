@@ -43,7 +43,7 @@
     self.view.frame = [[UIScreen mainScreen] applicationFrame];
     self.gridView.backgroundColor = [UIColor clearColor];
     [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:26.0/255.0 green:32.0/255.0 blue:133.0/255.0 alpha:1.0]];
-    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"Background.png"]];
     
     // Enable GridView
     self.gridView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
@@ -70,6 +70,8 @@
         CGRect frame = _gridView.frame;
         frame.size = CGSizeMake(617, 195);
         _gridView.frame = frame;
+        
+        [self.view bringSubviewToFront:_gridView];
 
     }
 }
@@ -233,6 +235,7 @@
     // just changes the position of the video.  allows to continue playing the video \
     // with updateYoutubeVideo it replaces the video when you change views starting the video over.
     [self updateYoutubePosition:orientation];
+    [_gridView reloadData];
 }
 
 
