@@ -284,7 +284,7 @@
         }
     } else {
         [self updateLayout_iPad:orientation];
-        
+        [self updateYoutubeVideo:[UIApplication sharedApplication].statusBarOrientation];
     }
 }
 
