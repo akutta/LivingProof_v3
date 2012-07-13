@@ -7,13 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A92765C515A764790028B21A /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = A92765C115A764790028B21A /* Background.png */; };
-		A92765C615A764790028B21A /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = A92765C215A764790028B21A /* placeholder.png */; };
-		A92765C715A764790028B21A /* WelcomeScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = A92765C315A764790028B21A /* WelcomeScreen.png */; };
-		A92765C815A764790028B21A /* WelcomeScreenRotated.png in Resources */ = {isa = PBXBuildFile; fileRef = A92765C415A764790028B21A /* WelcomeScreenRotated.png */; };
 		A92765CB15A78B940028B21A /* VideoSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A92765CA15A78B940028B21A /* VideoSelectionViewController.m */; };
-		A92765CE15A7C3120028B21A /* VideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A92765CD15A7C3120028B21A /* VideoPlayerViewController.m */; };
-		A92765D215A7C9840028B21A /* backgroundVideoDetail.png in Resources */ = {isa = PBXBuildFile; fileRef = A92765D115A7C9840028B21A /* backgroundVideoDetail.png */; };
 		A999A994159ED79200112FC6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A999A993159ED79200112FC6 /* UIKit.framework */; };
 		A999A996159ED79200112FC6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A999A995159ED79200112FC6 /* Foundation.framework */; };
 		A999A998159ED79200112FC6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A999A997159ED79200112FC6 /* CoreGraphics.framework */; };
@@ -25,6 +19,15 @@
 		A999A9AD159ED79200112FC6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A999A9AC159ED79200112FC6 /* ViewController.m */; };
 		A999A9B8159ED81A00112FC6 /* MainScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A999A9B7159ED81A00112FC6 /* MainScreenViewController.m */; };
 		A999A9BF159EDA1900112FC6 /* YouTubeInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = A999A9BE159EDA1900112FC6 /* YouTubeInterface.m */; };
+		A99E0F1715B0C7FB00C8A3EE /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = A99E0F1415B0C7FB00C8A3EE /* Icon-72.png */; };
+		A99E0F1815B0C7FB00C8A3EE /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A99E0F1515B0C7FB00C8A3EE /* Icon-Small-50.png */; };
+		A99E0F1915B0C7FB00C8A3EE /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = A99E0F1615B0C7FB00C8A3EE /* Icon-Small.png */; };
+		A99E0F2015B0C82C00C8A3EE /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = A99E0F1B15B0C82C00C8A3EE /* Background.png */; };
+		A99E0F2115B0C82C00C8A3EE /* backgroundVideoDetail.png in Resources */ = {isa = PBXBuildFile; fileRef = A99E0F1C15B0C82C00C8A3EE /* backgroundVideoDetail.png */; };
+		A99E0F2215B0C82C00C8A3EE /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = A99E0F1D15B0C82C00C8A3EE /* placeholder.png */; };
+		A99E0F2315B0C82C00C8A3EE /* WelcomeScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = A99E0F1E15B0C82C00C8A3EE /* WelcomeScreen.png */; };
+		A99E0F2415B0C82C00C8A3EE /* WelcomeScreenRotated.png in Resources */ = {isa = PBXBuildFile; fileRef = A99E0F1F15B0C82C00C8A3EE /* WelcomeScreenRotated.png */; };
+		A99E0F2715B0C84400C8A3EE /* VideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A99E0F2615B0C84400C8A3EE /* VideoPlayerViewController.m */; };
 		A99E34E3159EDBF300E89C28 /* GDataACLKeyedRole.m in Sources */ = {isa = PBXBuildFile; fileRef = A99E3382159EDBF300E89C28 /* GDataACLKeyedRole.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A99E34E4159EDBF300E89C28 /* GDataACLRole.m in Sources */ = {isa = PBXBuildFile; fileRef = A99E3384159EDBF300E89C28 /* GDataACLRole.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A99E34E5159EDBF300E89C28 /* GDataACLScope.m in Sources */ = {isa = PBXBuildFile; fileRef = A99E3386159EDBF300E89C28 /* GDataACLScope.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -181,15 +184,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A92765C115A764790028B21A /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
-		A92765C215A764790028B21A /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
-		A92765C315A764790028B21A /* WelcomeScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WelcomeScreen.png; sourceTree = "<group>"; };
-		A92765C415A764790028B21A /* WelcomeScreenRotated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WelcomeScreenRotated.png; sourceTree = "<group>"; };
 		A92765C915A78B940028B21A /* VideoSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoSelectionViewController.h; sourceTree = "<group>"; };
 		A92765CA15A78B940028B21A /* VideoSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoSelectionViewController.m; sourceTree = "<group>"; };
-		A92765CC15A7C3120028B21A /* VideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoPlayerViewController.h; path = ../VideoPlayerViewController.h; sourceTree = "<group>"; };
-		A92765CD15A7C3120028B21A /* VideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoPlayerViewController.m; path = ../VideoPlayerViewController.m; sourceTree = "<group>"; };
-		A92765D115A7C9840028B21A /* backgroundVideoDetail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundVideoDetail.png; sourceTree = "<group>"; };
 		A999A98F159ED79200112FC6 /* LivingProof.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LivingProof.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A999A993159ED79200112FC6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A999A995159ED79200112FC6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -208,6 +204,16 @@
 		A999A9B7159ED81A00112FC6 /* MainScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreenViewController.m; sourceTree = "<group>"; };
 		A999A9BD159EDA1900112FC6 /* YouTubeInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouTubeInterface.h; sourceTree = "<group>"; };
 		A999A9BE159EDA1900112FC6 /* YouTubeInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YouTubeInterface.m; sourceTree = "<group>"; };
+		A99E0F1415B0C7FB00C8A3EE /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Images/Icon-72.png"; sourceTree = "<group>"; };
+		A99E0F1515B0C7FB00C8A3EE /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50.png"; path = "Images/Icon-Small-50.png"; sourceTree = "<group>"; };
+		A99E0F1615B0C7FB00C8A3EE /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "Images/Icon-Small.png"; sourceTree = "<group>"; };
+		A99E0F1B15B0C82C00C8A3EE /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Background.png; path = Images/Background.png; sourceTree = "<group>"; };
+		A99E0F1C15B0C82C00C8A3EE /* backgroundVideoDetail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = backgroundVideoDetail.png; path = Images/backgroundVideoDetail.png; sourceTree = "<group>"; };
+		A99E0F1D15B0C82C00C8A3EE /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeholder.png; path = Images/placeholder.png; sourceTree = "<group>"; };
+		A99E0F1E15B0C82C00C8A3EE /* WelcomeScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WelcomeScreen.png; path = Images/WelcomeScreen.png; sourceTree = "<group>"; };
+		A99E0F1F15B0C82C00C8A3EE /* WelcomeScreenRotated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WelcomeScreenRotated.png; path = Images/WelcomeScreenRotated.png; sourceTree = "<group>"; };
+		A99E0F2515B0C84400C8A3EE /* VideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayerViewController.h; sourceTree = "<group>"; };
+		A99E0F2615B0C84400C8A3EE /* VideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerViewController.m; sourceTree = "<group>"; };
 		A99E3380159EDBF300E89C28 /* GDataACL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataACL.h; sourceTree = "<group>"; };
 		A99E3381159EDBF300E89C28 /* GDataACLKeyedRole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataACLKeyedRole.h; sourceTree = "<group>"; };
 		A99E3382159EDBF300E89C28 /* GDataACLKeyedRole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataACLKeyedRole.m; sourceTree = "<group>"; };
@@ -548,11 +554,14 @@
 		A92765BF15A764490028B21A /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				A92765D115A7C9840028B21A /* backgroundVideoDetail.png */,
-				A92765C115A764790028B21A /* Background.png */,
-				A92765C215A764790028B21A /* placeholder.png */,
-				A92765C315A764790028B21A /* WelcomeScreen.png */,
-				A92765C415A764790028B21A /* WelcomeScreenRotated.png */,
+				A99E0F1B15B0C82C00C8A3EE /* Background.png */,
+				A99E0F1C15B0C82C00C8A3EE /* backgroundVideoDetail.png */,
+				A99E0F1D15B0C82C00C8A3EE /* placeholder.png */,
+				A99E0F1E15B0C82C00C8A3EE /* WelcomeScreen.png */,
+				A99E0F1F15B0C82C00C8A3EE /* WelcomeScreenRotated.png */,
+				A99E0F1415B0C7FB00C8A3EE /* Icon-72.png */,
+				A99E0F1515B0C7FB00C8A3EE /* Icon-Small-50.png */,
+				A99E0F1615B0C7FB00C8A3EE /* Icon-Small.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -592,29 +601,13 @@
 		A999A999159ED79200112FC6 /* LivingProof */ = {
 			isa = PBXGroup;
 			children = (
-				A92765BF15A764490028B21A /* Images */,
 				A99E337D159EDBF300E89C28 /* lib */,
-				A999A9BD159EDA1900112FC6 /* YouTubeInterface.h */,
-				A999A9BE159EDA1900112FC6 /* YouTubeInterface.m */,
-				A99E359215A3EFB900E89C28 /* VideoGridCell.h */,
-				A99E359315A3EFBA00E89C28 /* VideoGridCell.m */,
-				A999A9A2159ED79200112FC6 /* AppDelegate.h */,
-				A999A9A3159ED79200112FC6 /* AppDelegate.m */,
+				A92765BF15A764490028B21A /* Images */,
+				A99E0F2915B0C89B00C8A3EE /* Header Files */,
+				A99E0F2815B0C88A00C8A3EE /* Source Files */,
 				A999A9A5159ED79200112FC6 /* MainStoryboard_iPhone.storyboard */,
 				A999A9A8159ED79200112FC6 /* MainStoryboard_iPad.storyboard */,
-				A999A9AB159ED79200112FC6 /* ViewController.h */,
-				A999A9AC159ED79200112FC6 /* ViewController.m */,
 				A999A99A159ED79200112FC6 /* Supporting Files */,
-				A999A9B6159ED81A00112FC6 /* MainScreenViewController.h */,
-				A999A9B7159ED81A00112FC6 /* MainScreenViewController.m */,
-				A99E3585159EE9D500E89C28 /* AgesViewController.h */,
-				A99E3586159EE9D500E89C28 /* AgesViewController.m */,
-				A99E358815A00C4400E89C28 /* CategoriesViewController.h */,
-				A99E358915A00C4400E89C28 /* CategoriesViewController.m */,
-				A92765C915A78B940028B21A /* VideoSelectionViewController.h */,
-				A92765CA15A78B940028B21A /* VideoSelectionViewController.m */,
-				A92765CC15A7C3120028B21A /* VideoPlayerViewController.h */,
-				A92765CD15A7C3120028B21A /* VideoPlayerViewController.m */,
 			);
 			path = LivingProof;
 			sourceTree = "<group>";
@@ -628,6 +621,38 @@
 				A999A9A1159ED79200112FC6 /* LivingProof-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A99E0F2815B0C88A00C8A3EE /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				A999A9BE159EDA1900112FC6 /* YouTubeInterface.m */,
+				A99E359315A3EFBA00E89C28 /* VideoGridCell.m */,
+				A999A9A3159ED79200112FC6 /* AppDelegate.m */,
+				A999A9AC159ED79200112FC6 /* ViewController.m */,
+				A999A9B7159ED81A00112FC6 /* MainScreenViewController.m */,
+				A99E3586159EE9D500E89C28 /* AgesViewController.m */,
+				A99E358915A00C4400E89C28 /* CategoriesViewController.m */,
+				A92765CA15A78B940028B21A /* VideoSelectionViewController.m */,
+				A99E0F2615B0C84400C8A3EE /* VideoPlayerViewController.m */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		A99E0F2915B0C89B00C8A3EE /* Header Files */ = {
+			isa = PBXGroup;
+			children = (
+				A999A9BD159EDA1900112FC6 /* YouTubeInterface.h */,
+				A99E359215A3EFB900E89C28 /* VideoGridCell.h */,
+				A999A9A2159ED79200112FC6 /* AppDelegate.h */,
+				A999A9AB159ED79200112FC6 /* ViewController.h */,
+				A999A9B6159ED81A00112FC6 /* MainScreenViewController.h */,
+				A99E3585159EE9D500E89C28 /* AgesViewController.h */,
+				A99E358815A00C4400E89C28 /* CategoriesViewController.h */,
+				A92765C915A78B940028B21A /* VideoSelectionViewController.h */,
+				A99E0F2515B0C84400C8A3EE /* VideoPlayerViewController.h */,
+			);
+			name = "Header Files";
 			sourceTree = "<group>";
 		};
 		A99E337D159EDBF300E89C28 /* lib */ = {
@@ -1221,11 +1246,14 @@
 				A999A9A7159ED79200112FC6 /* MainStoryboard_iPhone.storyboard in Resources */,
 				A999A9AA159ED79200112FC6 /* MainStoryboard_iPad.storyboard in Resources */,
 				A99E3573159EDBF300E89C28 /* SVProgressHUD.bundle in Resources */,
-				A92765C515A764790028B21A /* Background.png in Resources */,
-				A92765C615A764790028B21A /* placeholder.png in Resources */,
-				A92765C715A764790028B21A /* WelcomeScreen.png in Resources */,
-				A92765C815A764790028B21A /* WelcomeScreenRotated.png in Resources */,
-				A92765D215A7C9840028B21A /* backgroundVideoDetail.png in Resources */,
+				A99E0F1715B0C7FB00C8A3EE /* Icon-72.png in Resources */,
+				A99E0F1815B0C7FB00C8A3EE /* Icon-Small-50.png in Resources */,
+				A99E0F1915B0C7FB00C8A3EE /* Icon-Small.png in Resources */,
+				A99E0F2015B0C82C00C8A3EE /* Background.png in Resources */,
+				A99E0F2115B0C82C00C8A3EE /* backgroundVideoDetail.png in Resources */,
+				A99E0F2215B0C82C00C8A3EE /* placeholder.png in Resources */,
+				A99E0F2315B0C82C00C8A3EE /* WelcomeScreen.png in Resources */,
+				A99E0F2415B0C82C00C8A3EE /* WelcomeScreenRotated.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1389,7 +1417,7 @@
 				A99E358A15A00C4400E89C28 /* CategoriesViewController.m in Sources */,
 				A99E359415A3EFBA00E89C28 /* VideoGridCell.m in Sources */,
 				A92765CB15A78B940028B21A /* VideoSelectionViewController.m in Sources */,
-				A92765CE15A7C3120028B21A /* VideoPlayerViewController.m in Sources */,
+				A99E0F2715B0C84400C8A3EE /* VideoPlayerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

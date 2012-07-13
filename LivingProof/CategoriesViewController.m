@@ -151,15 +151,6 @@
     
     [gridView deselectItemAtIndex:index animated:NO];
     [self.navigationController pushViewController:nextView animated:YES];
-    
-    //    VideoSelectionViewController *nextView = [[VideoSelectionViewController alloc] initWithNibName:@"VideoSelectionViewController" 
-    //                                                                                            bundle:nil 
-    //                                                                                          category:cell.title 
-    //                                                                                            filter:nil
-    //                                                                                        buttonText:@"Ages"];    // Change to Title of the selected
-    
-    
-    
 }
 
 @end
