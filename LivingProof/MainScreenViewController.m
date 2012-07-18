@@ -242,10 +242,6 @@
 }
 
 //
-// Private Implementations 
-//
- 
-//
 // Portrait Orientations of the Buttons and Background
 //
 - (void)displayPortrait_iPhone {
