@@ -31,6 +31,8 @@
         [view removeFromSuperview];
         [window addSubview:view];  
     }
+    [self updateLayout_iPad:[UIApplication sharedApplication].statusBarOrientation];
+    [self.view bringSubviewToFront:_gridView];
 }
 
 - (void)viewDidLoad
@@ -61,16 +63,18 @@
             [window addSubview:view];
         }
         bDoOnce = true;
-    } else {        [self setupGridView:12.0 borderWidth:2.0];
+    } else {       
+        
+        [self setupGridView:12.0 borderWidth:2.0];
         
         [self updateLabels];    
         [self.gridView reloadData];
-        [self updateLayout:[UIApplication sharedApplication].statusBarOrientation];
-        [self updateLayout_iPad:[UIApplication sharedApplication].statusBarOrientation];
+        //[self updateLayout:[UIApplication sharedApplication].statusBarOrientation];
         CGRect frame = _gridView.frame;
         frame.size = CGSizeMake(617, 195);
         _gridView.frame = frame;
         
+        [self updateLayout_iPad:[UIApplication sharedApplication].statusBarOrientation];
         [self.view bringSubviewToFront:_gridView];
 
     }
@@ -201,9 +205,9 @@
 }
 
 -(void)updateLayout_iPad:(UIInterfaceOrientation)orientation {
-    
-    //NSLog(@"updateLayout:  %@",orientation);
+    NSLog(@"updateLayout");
     if ( UIInterfaceOrientationIsPortrait(orientation) ) {
+        NSLog(@"portrait");
         CGRect frame = videoTitle.frame;
         frame.origin = CGPointMake(243, frame.origin.y);
         videoTitle.frame = frame;
@@ -215,6 +219,7 @@
         frame.origin = CGPointMake(76, 790);
         _gridView.frame = frame;
     } else {
+        NSLog(@"landscape");
         CGRect frame = videoTitle.frame;
         frame.origin = CGPointMake(371, frame.origin.y);
         videoTitle.frame = frame;
@@ -231,6 +236,8 @@
     CGRect frame = _gridView.frame;
     frame.size = CGSizeMake(617, 150);
     _gridView.frame = frame;
+    
+    [self.view bringSubviewToFront:_gridView];
     
     // just changes the position of the video.  allows to continue playing the video \
     // with updateYoutubeVideo it replaces the video when you change views starting the video over.

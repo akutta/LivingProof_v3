@@ -19,4 +19,6 @@
 @property (nonatomic, retain) NSString *filter;
 @property (nonatomic, retain) NSString *navBackText;
 
+
+
 @end

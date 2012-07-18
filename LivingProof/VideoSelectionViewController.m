@@ -168,5 +168,9 @@
 }
 
 
+-(IBAction)goHome:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 @end
