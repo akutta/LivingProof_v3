@@ -30,8 +30,12 @@
         UIView *view = [window.subviews objectAtIndex:0];
         [view removeFromSuperview];
         [window addSubview:view];  
+    } else {
+            if ( [[[UIDevice currentDevice] name] hasPrefix:@"iPhone"] ) {
+                [self updateLayout:UIInterfaceOrientationLandscapeLeft];
+            }
     }
-    [self updateLayout_iPad:[UIApplication sharedApplication].statusBarOrientation];
+    [self updateLayout:[UIApplication sharedApplication].statusBarOrientation];
     [self.view bringSubviewToFront:_gridView];
 }
 
@@ -42,8 +46,6 @@
 
 - (void)viewDidLoad
 {
-    [UIView setAnimationsEnabled:YES];
-    
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
@@ -71,7 +73,7 @@
             [view removeFromSuperview];
             [window addSubview:view];
         }
-        bDoOnce = true;
+        bDoOnce = YES;
     } else {       
         
         [self setupGridView:12.0 borderWidth:2.0];

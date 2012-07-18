@@ -9,13 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "AQGridView.h"
 #import "YouTubeInterface.h"
+#import "CustomTableViewCell.h"
 //#import "Utilities.h"
 
-@interface AgesViewController : UIViewController <AQGridViewDelegate, AQGridViewDataSource> {
+@interface AgesViewController : UIViewController <AQGridViewDelegate, AQGridViewDataSource, UITableViewDataSource, UITableViewDelegate> {
     NSArray *_ages;
     AQGridView *_gridView;
+    UITableView *_myTableView;
     YouTubeInterface *youTube;    
 }
 @property (nonatomic, retain) IBOutlet AQGridView *gridView;
-
+@property (nonatomic, retain) IBOutlet UITableView *myTableView;
 @end

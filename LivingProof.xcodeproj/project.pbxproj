@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A92765CB15A78B940028B21A /* VideoSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A92765CA15A78B940028B21A /* VideoSelectionViewController.m */; };
+		A984E02515B74E0B00A7B8BE /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A984E02415B74E0B00A7B8BE /* CustomTableViewCell.m */; };
 		A999A994159ED79200112FC6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A999A993159ED79200112FC6 /* UIKit.framework */; };
 		A999A996159ED79200112FC6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A999A995159ED79200112FC6 /* Foundation.framework */; };
 		A999A998159ED79200112FC6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A999A997159ED79200112FC6 /* CoreGraphics.framework */; };
@@ -186,6 +187,8 @@
 /* Begin PBXFileReference section */
 		A92765C915A78B940028B21A /* VideoSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoSelectionViewController.h; sourceTree = "<group>"; };
 		A92765CA15A78B940028B21A /* VideoSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoSelectionViewController.m; sourceTree = "<group>"; };
+		A984E02315B74E0B00A7B8BE /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		A984E02415B74E0B00A7B8BE /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		A999A98F159ED79200112FC6 /* LivingProof.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LivingProof.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A999A993159ED79200112FC6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A999A995159ED79200112FC6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -635,6 +638,7 @@
 				A99E358915A00C4400E89C28 /* CategoriesViewController.m */,
 				A92765CA15A78B940028B21A /* VideoSelectionViewController.m */,
 				A99E0F2615B0C84400C8A3EE /* VideoPlayerViewController.m */,
+				A984E02415B74E0B00A7B8BE /* CustomTableViewCell.m */,
 			);
 			name = "Source Files";
 			sourceTree = "<group>";
@@ -651,6 +655,7 @@
 				A99E358815A00C4400E89C28 /* CategoriesViewController.h */,
 				A92765C915A78B940028B21A /* VideoSelectionViewController.h */,
 				A99E0F2515B0C84400C8A3EE /* VideoPlayerViewController.h */,
+				A984E02315B74E0B00A7B8BE /* CustomTableViewCell.h */,
 			);
 			name = "Header Files";
 			sourceTree = "<group>";
@@ -1418,6 +1423,7 @@
 				A99E359415A3EFBA00E89C28 /* VideoGridCell.m in Sources */,
 				A92765CB15A78B940028B21A /* VideoSelectionViewController.m in Sources */,
 				A99E0F2715B0C84400C8A3EE /* VideoPlayerViewController.m in Sources */,
+				A984E02515B74E0B00A7B8BE /* CustomTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

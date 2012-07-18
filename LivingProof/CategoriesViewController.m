@@ -20,7 +20,7 @@
 @implementation CategoriesViewController
 
 
-@synthesize gridView = _gridView;
+@synthesize gridView = _gridView, myTableView = _myTableView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,6 +33,7 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBarHidden = NO;
+    self.myTableView.backgroundColor = [UIColor clearColor];
 }
 
 - (void)viewDidLoad
@@ -91,6 +92,67 @@
     return YES;//(interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+#pragma mark UITableView
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 100.0;
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [_categories count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *AgeTableCellIdentifier = @"CustomTableCell";
+    
+    CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:AgeTableCellIdentifier];
+    
+    if ( cell == nil )
+    {
+        cell = [[CustomTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:AgeTableCellIdentifier];
+        cell.selectionStyle = AQGridViewCellSelectionStyleBlueGray;
+    }
+    
+    NSDictionary *video = [_categories objectAtIndex:indexPath.row];
+    
+    SDWebImageManager *manager = [SDWebImageManager sharedManager];
+    NSURL *thumbnailURL = [video objectForKey:@"thumbnailURL"];
+    UIImage *cachedImage = [manager imageWithURL:thumbnailURL];
+    
+    if ( cachedImage ) {
+        [cell.imageView setImage:cachedImage];
+    } else
+        [cell.imageView setImageWithURL:thumbnailURL placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+    
+    [cell.textLabel setText:[video objectForKey:@"name"]];
+    return cell;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    //VideoGridCell *cell = [(VideoGridCell*)[gridView cellForItemAtIndex:index] autorelease];
+    CustomTableViewCell *cell = (CustomTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
+    VideoSelectionViewController *nextView = [self.storyboard instantiateViewControllerWithIdentifier:@"VideoSelectionViewController"];
+    
+    [nextView setFilter:cell.textLabel.text];
+    [nextView setNavBackText:@"Categories"];
+    
+    // Oddly enough, this is the backButton for the nextView 
+    // Wierd stuff going on here
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Categories" style:UIBarButtonItemStylePlain target:nil action:nil];
+    [self.navigationItem setBackBarButtonItem:backButton];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    [self.navigationController pushViewController:nextView animated:YES];
+}
+
+
 #pragma mark AQGridView
 
 - (NSUInteger) numberOfItemsInGridView: (AQGridView *) gridView {
@@ -128,7 +190,6 @@
         [cell.imageView setImageWithURL:thumbnailURL placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
     
     [cell.title setText:[video objectForKey:@"name"]];
-    //    cell.title = [video objectForKey:@"name"];// tmp.name;
     
     return cell;
 }

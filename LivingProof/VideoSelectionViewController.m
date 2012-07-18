@@ -18,7 +18,7 @@
 
 @implementation VideoSelectionViewController
 
-@synthesize gridView, navBackText, filter;
+@synthesize gridView, navBackText, filter, myTableView = _myTableView;
 
 - (void)filterVideos {
     if ( navBackText != @"Ages" ) return;
@@ -38,6 +38,10 @@
         }
     }
     videos = [filteredVideos copy];
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    self.myTableView.backgroundColor = [UIColor clearColor];
 }
 
 - (void)viewDidLoad
@@ -98,6 +102,86 @@
     return [videos count];
 }
 
+
+#pragma mark UITableView
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 100.0;
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [videos count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *AgeTableCellIdentifier = @"CustomTableCell";
+    
+    CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:AgeTableCellIdentifier];
+    
+    if ( cell == nil )
+    {
+        cell = [[CustomTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:AgeTableCellIdentifier];
+        cell.selectionStyle = AQGridViewCellSelectionStyleBlueGray;
+    }
+    
+    NSDictionary *video = [videos objectAtIndex:indexPath.row];
+    
+    SDWebImageManager *manager = [SDWebImageManager sharedManager];
+    NSURL *thumbnailURL = [video objectForKey:@"thumbnailURL"];
+    UIImage *cachedImage = [manager imageWithURL:thumbnailURL];
+    
+    if ( cachedImage ) {
+        [cell.imageView setImage:cachedImage];
+    } else
+        [cell.imageView setImageWithURL:thumbnailURL placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+    
+    
+    if ( navBackText == @"Ages" ) {
+        [cell.textLabel setText:[(NSDictionary*)[video objectForKey:@"parsedKeys"] objectForKey:@"name"]];
+    } else {
+        [cell.textLabel setText:[video objectForKey:@"title"]];
+    }
+    return cell;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CustomTableViewCell *cell = (CustomTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
+    
+    
+    if ( navBackText == @"Ages" ) {
+        VideoSelectionViewController *nextView = [self.storyboard instantiateViewControllerWithIdentifier:@"VideoSelectionViewController"];
+        
+        [nextView setFilter:cell.textLabel.text];
+        [nextView setNavBackText:@"Back"];
+        
+        // Oddly enough, this is the backButton for the nextView 
+        // Wierd stuff going on here
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+        [self.navigationItem setBackBarButtonItem:backButton];
+        
+        [tableView deselectRowAtIndexPath:indexPath animated:NO];
+        [self.navigationController pushViewController:nextView animated:YES];
+    } else {
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+        [self.navigationItem setBackBarButtonItem:backButton];
+        
+        VideoPlayerViewController *nextView = [self.storyboard instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];        
+        [nextView setCurVideo:[videos objectAtIndex:indexPath.row]];
+        [nextView setRelatedVideos:videos];
+        
+        [tableView deselectRowAtIndexPath:indexPath animated:NO];
+        [self.navigationController pushViewController:nextView animated:NO];
+    }
+}
+
+
+#pragma mark AQGridView
 
 // Defines the size of the grid cell
 // modify for use with iPhone

@@ -9,16 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "AQGridView.h"
 #import "YouTubeInterface.h"
+#import "CustomTableViewCell.h"
 
-@interface CategoriesViewController : UIViewController <AQGridViewDelegate, AQGridViewDataSource>  {
+@interface CategoriesViewController : UIViewController <AQGridViewDelegate, AQGridViewDataSource, UITableViewDataSource, UITableViewDelegate>  {
     NSArray *_imageNames;
     NSArray *_categories;
-
+    
+    UITableView *_myTableView;
     AQGridView *_gridView;
-    //    Utilities *_utilities;
     YouTubeInterface *youTube;
 }
 
+@property (nonatomic, retain) IBOutlet UITableView *myTableView;
 @property (nonatomic, retain) IBOutlet AQGridView *gridView;
 
 @end

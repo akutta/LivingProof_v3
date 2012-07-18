@@ -229,6 +229,15 @@
     [UIView setAnimationsEnabled:NO];
     
     //[self delegate].curOrientation = interfaceOrientation;
+    if ( [[[UIDevice currentDevice] name] hasPrefix:@"iPhone"] ) {
+        if ( interfaceOrientation == UIInterfaceOrientationPortrait || 
+            interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
+        {
+            return YES;
+        }
+        return NO;
+    }
+    
     return YES;
 }
 
