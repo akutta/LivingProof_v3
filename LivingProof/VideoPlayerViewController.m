@@ -35,12 +35,21 @@
     [self.view bringSubviewToFront:_gridView];
 }
 
+-(IBAction)goHome:(id)sender {
+    [self.navigationController popToViewController:[[self.navigationController viewControllers] objectAtIndex:0] animated:NO];
+}
+
+
 - (void)viewDidLoad
 {
     [UIView setAnimationsEnabled:YES];
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    UIBarButtonItem *homeButton = [[UIBarButtonItem alloc] initWithTitle:@"Home" style:UIBarButtonItemStylePlain target:self action:@selector(goHome:)];
+    self.navigationItem.rightBarButtonItem = homeButton;
+    self.navigationItem.title = @"Living Proof";
     
     self.view.frame = [[UIScreen mainScreen] applicationFrame];
     self.gridView.backgroundColor = [UIColor clearColor];

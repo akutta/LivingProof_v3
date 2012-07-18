@@ -169,7 +169,8 @@
 
 
 -(IBAction)goHome:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popToViewController:[[self.navigationController viewControllers] objectAtIndex:0] animated:NO];
+    //[self.navigationController popViewControllerAnimated:YES];
 }
 
 
