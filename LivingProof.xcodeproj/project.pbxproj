@@ -182,6 +182,8 @@
 		A99E3587159EE9D500E89C28 /* AgesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A99E3586159EE9D500E89C28 /* AgesViewController.m */; };
 		A99E358A15A00C4400E89C28 /* CategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A99E358915A00C4400E89C28 /* CategoriesViewController.m */; };
 		A99E359415A3EFBA00E89C28 /* VideoGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A99E359315A3EFBA00E89C28 /* VideoGridCell.m */; };
+		A9A0840A15E2B3D400F29442 /* Official_WUSTL-2line-4c-LG.png in Resources */ = {isa = PBXBuildFile; fileRef = A9A0840915E2B3D400F29442 /* Official_WUSTL-2line-4c-LG.png */; };
+		A9A0841E15E2B51900F29442 /* Official_WUSTL-2line-4c-SM.png in Resources */ = {isa = PBXBuildFile; fileRef = A9A0841D15E2B51900F29442 /* Official_WUSTL-2line-4c-SM.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -533,6 +535,8 @@
 		A99E358915A00C4400E89C28 /* CategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesViewController.m; sourceTree = "<group>"; };
 		A99E359215A3EFB900E89C28 /* VideoGridCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoGridCell.h; sourceTree = "<group>"; };
 		A99E359315A3EFBA00E89C28 /* VideoGridCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoGridCell.m; sourceTree = "<group>"; };
+		A9A0840915E2B3D400F29442 /* Official_WUSTL-2line-4c-LG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Official_WUSTL-2line-4c-LG.png"; path = "Images/Official_WUSTL-2line-4c-LG.png"; sourceTree = "<group>"; };
+		A9A0841D15E2B51900F29442 /* Official_WUSTL-2line-4c-SM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Official_WUSTL-2line-4c-SM.png"; path = "Images/Official_WUSTL-2line-4c-SM.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -557,6 +561,8 @@
 		A92765BF15A764490028B21A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A9A0841D15E2B51900F29442 /* Official_WUSTL-2line-4c-SM.png */,
+				A9A0840915E2B3D400F29442 /* Official_WUSTL-2line-4c-LG.png */,
 				A99E0F1B15B0C82C00C8A3EE /* Background.png */,
 				A99E0F1C15B0C82C00C8A3EE /* backgroundVideoDetail.png */,
 				A99E0F1D15B0C82C00C8A3EE /* placeholder.png */,
@@ -1259,6 +1265,8 @@
 				A99E0F2415B0C82C00C8A3EE /* WelcomeScreenRotated.png in Resources */,
 				A99E0F2B15B0C90200C8A3EE /* Icon-72.png in Resources */,
 				A99E0F2D15B0C96200C8A3EE /* Icon-Small-50.png in Resources */,
+				A9A0840A15E2B3D400F29442 /* Official_WUSTL-2line-4c-LG.png in Resources */,
+				A9A0841E15E2B51900F29442 /* Official_WUSTL-2line-4c-SM.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

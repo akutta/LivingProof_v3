@@ -88,13 +88,28 @@
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration 
 {   
-    if ( toInterfaceOrientation == UIInterfaceOrientationPortrait || 
-        toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
+//    if ( toInterfaceOrientation == UIInterfaceOrientationPortrait || 
+//        toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
+//    {
+//        [self displayPortrait];
+//    }
+//    else if ( toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft || 
+//             toInterfaceOrientation == UIInterfaceOrientationLandscapeRight )
+//    {
+//        
+//        [self displayLandscape];
+//    }
+}
+
+-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    [UIView setAnimationsEnabled:YES];
+    if ( !(fromInterfaceOrientation == UIInterfaceOrientationPortrait || 
+        fromInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown))
     {
         [self displayPortrait];
     }
-    else if ( toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft || 
-             toInterfaceOrientation == UIInterfaceOrientationLandscapeRight )
+    else if ( !(fromInterfaceOrientation == UIInterfaceOrientationLandscapeLeft || 
+             fromInterfaceOrientation == UIInterfaceOrientationLandscapeRight ))
     {
         
         [self displayLandscape];
@@ -178,6 +193,14 @@
     self.navigationController.navigationBarHidden = YES;
     
     
+//    if ( UIInterfaceOrientationIsPortrait(self.interfaceOrientation) ) {
+//        [self displayPortrait];
+//    } else
+//        [self displayLandscape];
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    
     if ( UIInterfaceOrientationIsPortrait(self.interfaceOrientation) ) {
         [self displayPortrait];
     } else
@@ -219,9 +242,9 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-    [UIView setAnimationsEnabled:YES];
-}
+//- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+//    [UIView setAnimationsEnabled:YES];
+//}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {   
@@ -254,8 +277,13 @@
 - (void)displayPortrait_iPad {
     sortAge.frame = CGRectMake(170, 807, 210, 93 );    
     sortCategory.frame = CGRectMake(390, 807, 210, 93);
-    loadingLabel.frame = (CGRect){ CGPointMake(364, 878) ,loadingLabel.frame.size };;
-    activityView.frame = (CGRect){ CGPointMake(384, 849), activityView.frame.size };;
+    loadingLabel.frame = (CGRect){ CGPointMake(364, 878) ,loadingLabel.frame.size };
+    activityView.frame = (CGRect){ CGPointMake(384, 849), activityView.frame.size };
+    
+    CGRect frame = washULogo.frame;
+    frame.origin.x = self.view.frame.size.width - frame.size.width;
+    frame.origin.y = 0;//self.view.frame.size.height - frame.size.height;
+    washULogo.frame = frame;
 }
 
 -(void)displayPortrait {
@@ -285,6 +313,10 @@
     loadingLabel.frame = (CGRect){ CGPointMake(480, 630) ,loadingLabel.frame.size };;
     activityView.frame = (CGRect){ CGPointMake(500, 600), activityView.frame.size };;
     
+    CGRect frame = washULogo.frame;
+    frame.origin.x = self.view.frame.size.width - frame.size.width;
+    frame.origin.y = 0;//self.view.frame.size.height - frame.size.height;
+    washULogo.frame = frame;
 }
 
 - (void)displayLandscape {    

@@ -56,6 +56,10 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Official_WUSTL-2line-4c-SM.png" id="eFK-no-bBB">
+                                <rect key="frame" x="160" y="0.0" width="160" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -234,6 +238,9 @@
             <point key="canvasLocation" x="-13" y="293"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Official_WUSTL-2line-4c-SM.png" width="454" height="142"/>
+    </resources>
     <classes>
         <class className="AQGridView" superclassName="UIScrollView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AQGridView.h"/>
@@ -266,6 +273,7 @@
                 <relationship kind="outlet" name="loadingLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="sortAge" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="sortCategory" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="washULogo" candidateClass="UIImageView"/>
             </relationships>
         </class>
         <class className="VideoPlayerViewController" superclassName="UIViewController">

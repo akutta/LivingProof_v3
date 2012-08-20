@@ -15,6 +15,8 @@
     IBOutlet UILabel *loadingLabel;
     IBOutlet UIActivityIndicatorView *activityView;
     
+    IBOutlet UIImageView *washULogo;
+    
     UIColor *landscapeBackgroundImage;
     UIColor *portraitBackgroundImage;
     UIColor *lightPink;

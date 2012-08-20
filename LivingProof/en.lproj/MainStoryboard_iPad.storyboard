@@ -56,6 +56,10 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Official_WUSTL-2line-4c-LG.png" id="kU6-aL-BXF">
+                                <rect key="frame" x="501" y="0.0" width="267" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -65,6 +69,7 @@
                         <outlet property="loadingLabel" destination="pVE-kD-VFu" id="yfb-4r-cpi"/>
                         <outlet property="sortAge" destination="NQo-mI-KgG" id="J8l-vn-cO6"/>
                         <outlet property="sortCategory" destination="ibf-Wf-q3G" id="VKk-Nu-AHF"/>
+                        <outlet property="washULogo" destination="kU6-aL-BXF" id="Ndt-PC-PMt"/>
                     </connections>
                 </viewController>
             </objects>
@@ -306,6 +311,72 @@
             <point key="canvasLocation" x="-1094" y="-1243"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Official_WUSTL-2line-4c-LG.png" width="979" height="309"/>
+    </resources>
+    <classes>
+        <class className="AQGridView" superclassName="UIScrollView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AQGridView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dataSource"/>
+                <relationship kind="outlet" name="delegate"/>
+            </relationships>
+        </class>
+        <class className="AgesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AgesViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="gridView" candidateClass="AQGridView"/>
+                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="CategoriesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CategoriesViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="gridView" candidateClass="AQGridView"/>
+                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="MainScreenViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainScreenViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="activityView" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="loadingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="sortAge" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="sortCategory" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="washULogo" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="VideoPlayerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideoPlayerViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="_gridView" candidateClass="AQGridView"/>
+                <relationship kind="outlet" name="age" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ageLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="bottomMenu" candidateClass="UIView"/>
+                <relationship kind="outlet" name="childrenLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="childrenStatus" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="employentLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="employmentStatus" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="gridView" candidateClass="AQGridView"/>
+                <relationship kind="outlet" name="maritalStatus" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="maritalStatusLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="name" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="survivorshipLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="survivorshipLength" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="treatment" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="treatmentLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="videoTitle" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="VideoSelectionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideoSelectionViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="gridView" candidateClass="AQGridView"/>
+                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
