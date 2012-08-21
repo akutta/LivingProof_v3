@@ -327,13 +327,16 @@
 
 - (void)displayLandscape {    
     if ( [[[UIDevice currentDevice] name] hasPrefix:@"iPhone"] ) {
-        NSLog(@"displayLandscape iPhone");
-        [self displayLandscape_iPhone];
+        // Only portrait enabled in iPhone
+        NSLog(@"displayPortrait iPhone (old Landscape)");
+        [self displayPortrait_iPhone];
+//        NSLog(@"displayLandscape iPhone");
+        //[self displayLandscape_iPhone];
     } else {
         NSLog(@"displayLandscape iPad");
         [self displayLandscape_iPad];
+        self.view.backgroundColor = landscapeBackgroundImage;
     }
-    self.view.backgroundColor = landscapeBackgroundImage;
 }
 
 -(void)displayAlertViewWithText:(NSString*)text title:(NSString*)title {
