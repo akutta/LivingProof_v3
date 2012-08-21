@@ -272,6 +272,12 @@
     sortCategory.frame = CGRectMake(160, 294, 140, 60);
     loadingLabel.frame = (CGRect){ CGPointMake(129, 333) ,loadingLabel.frame.size };
     activityView.frame = (CGRect){ CGPointMake(150, 305), activityView.frame.size };
+    
+    CGRect frame = washULogo.frame;
+    frame.origin.x = self.view.frame.size.width - frame.size.width - 10;
+    frame.origin.y = self.view.frame.size.height - frame.size.height - 10;
+    washULogo.frame = frame;
+    
 }
 
 - (void)displayPortrait_iPad {
@@ -281,8 +287,8 @@
     activityView.frame = (CGRect){ CGPointMake(384, 849), activityView.frame.size };
     
     CGRect frame = washULogo.frame;
-    frame.origin.x = self.view.frame.size.width - frame.size.width;
-    frame.origin.y = 0;//self.view.frame.size.height - frame.size.height;
+    frame.origin.x = self.view.frame.size.width - frame.size.width - 10;
+    frame.origin.y = self.view.frame.size.height - frame.size.height - 10;
     washULogo.frame = frame;
 }
 
@@ -314,8 +320,8 @@
     activityView.frame = (CGRect){ CGPointMake(500, 600), activityView.frame.size };;
     
     CGRect frame = washULogo.frame;
-    frame.origin.x = self.view.frame.size.width - frame.size.width;
-    frame.origin.y = 0;//self.view.frame.size.height - frame.size.height;
+    frame.origin.x = (self.view.frame.size.width - frame.size.width) - 10;
+    frame.origin.y = self.view.frame.size.height - frame.size.height - 10;
     washULogo.frame = frame;
 }
 
