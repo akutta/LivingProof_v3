@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainScreenViewController : UIViewController {
+@interface MainScreenViewController : UIViewController <UIAlertViewDelegate> {
     IBOutlet UIButton *sortAge;
     IBOutlet UIButton *sortCategory;
     
@@ -21,6 +21,12 @@
     UIColor *portraitBackgroundImage;
     UIColor *lightPink;
     UIColor *strongPink;
+    
+    UITextView *myTextView ;
+    UIAlertView *av;
 }
+
+-(IBAction)disclaimerPushed:(id)sender;
+-(IBAction)privacyPushed:(id)sender;
 
 @end
