@@ -201,6 +201,8 @@
 
 -(void)viewDidAppear:(BOOL)animated {
     
+    buttonPlate.backgroundColor = [UIColor clearColor];
+    
     if ( UIInterfaceOrientationIsPortrait(self.interfaceOrientation) ) {
         [self displayPortrait];
     } else
@@ -290,6 +292,12 @@
     frame.origin.x = self.view.frame.size.width - frame.size.width - 10;
     frame.origin.y = self.view.frame.size.height - frame.size.height - 10;
     washULogo.frame = frame;
+    
+    
+    frame = buttonPlate.frame;
+    frame.origin.y = self.view.frame.size.height - frame.size.height;
+    frame.origin.x = 0;
+    buttonPlate.frame = frame;
 }
 
 -(void)displayPortrait {
@@ -323,6 +331,11 @@
     frame.origin.x = (self.view.frame.size.width - frame.size.width) - 10;
     frame.origin.y = self.view.frame.size.height - frame.size.height - 10;
     washULogo.frame = frame;
+    
+    frame = buttonPlate.frame;
+    frame.origin.y = self.view.frame.size.height - frame.size.height;
+    frame.origin.x = 0;
+    buttonPlate.frame = frame;
 }
 
 - (void)displayLandscape {    
@@ -343,7 +356,17 @@
     
     av = [[UIAlertView alloc]initWithTitle:title message:@"\n\n\n\n\n\n\n" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [[av class] setAnimationsEnabled:NO];
-    myTextView = [[UITextView alloc] initWithFrame:CGRectMake(12, 50, 260, 142)];
+
+    
+    
+    if ( [[[UIDevice currentDevice] name] hasPrefix:@"iPhone"] ) {
+        [myTextView setFont:[UIFont systemFontOfSize:15.0]];
+        myTextView = [[UITextView alloc] initWithFrame:CGRectMake(12, 50, 260, 142)];
+    } else {
+        [myTextView setFont:[UIFont systemFontOfSize:20.0]];
+        myTextView = [[UITextView alloc] initWithFrame:CGRectMake(12, 50, 520, 142)];
+    }
+    
     
     [myTextView setTextAlignment:UITextAlignmentLeft];
     [myTextView setEditable:NO];
@@ -360,6 +383,38 @@
     [av addSubview:myTextView];
     [av setTag:1];
     [av show];
+}
+
+- (void)willPresentAlertView:(UIAlertView *)alertView {
+    if ( [[[UIDevice currentDevice] name] hasPrefix:@"iPhone"] ) {
+    } else {
+        CGRect frame = alertView.frame;
+        frame.size.width += 260;
+        frame.origin.x -= 130;
+        alertView.frame = frame;
+        
+        UILabel *tempTitle = [[UILabel alloc] initWithFrame:CGRectMake(10,20,350, 20)];
+        tempTitle.backgroundColor = [UIColor clearColor];
+        tempTitle.textColor = [UIColor whiteColor];
+        tempTitle.textAlignment = UITextAlignmentCenter;
+        tempTitle.numberOfLines = 1;
+        tempTitle.font = [UIFont boldSystemFontOfSize:18];
+        tempTitle.text = alertView.title;
+        alertView.title = @"";
+        [alertView addSubview:tempTitle];
+        
+        // iterate through the subviews in order to find the button and resize it
+        for( UIView *view in alertView.subviews)
+        {
+            if([[view class] isSubclassOfClass:[UIControl class]])
+            {
+                CGRect buttonFrame = view.frame;
+                buttonFrame.origin.x += 2;
+                buttonFrame.size.width = frame.size.width - 25;
+                view.frame = buttonFrame;
+            }
+        }
+    }
 }
 
 -(IBAction)disclaimerPushed:(id)sender {
@@ -379,7 +434,6 @@
         \n\
         All content in this app is protected by copyright law, © 2012 The Washington University.";
     [self displayAlertViewWithText:disclaimer title:@"Disclaimer"];
-    
 }
 
 -(IBAction)privacyPushed:(id)sender {

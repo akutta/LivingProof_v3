@@ -12,6 +12,8 @@
     IBOutlet UIButton *sortAge;
     IBOutlet UIButton *sortCategory;
     
+    IBOutlet UIView *buttonPlate;
+    
     IBOutlet UILabel *loadingLabel;
     IBOutlet UIActivityIndicatorView *activityView;
     
