@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A92765CB15A78B940028B21A /* VideoSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A92765CA15A78B940028B21A /* VideoSelectionViewController.m */; };
 		A984E02515B74E0B00A7B8BE /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A984E02415B74E0B00A7B8BE /* CustomTableViewCell.m */; };
+		A990EB9F15E5C8F000EE4BF8 /* WU_logo_for_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = A990EB9E15E5C8F000EE4BF8 /* WU_logo_for_ipad.png */; };
 		A999A994159ED79200112FC6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A999A993159ED79200112FC6 /* UIKit.framework */; };
 		A999A996159ED79200112FC6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A999A995159ED79200112FC6 /* Foundation.framework */; };
 		A999A998159ED79200112FC6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A999A997159ED79200112FC6 /* CoreGraphics.framework */; };
@@ -191,6 +192,7 @@
 		A92765CA15A78B940028B21A /* VideoSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoSelectionViewController.m; sourceTree = "<group>"; };
 		A984E02315B74E0B00A7B8BE /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
 		A984E02415B74E0B00A7B8BE /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
+		A990EB9E15E5C8F000EE4BF8 /* WU_logo_for_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WU_logo_for_ipad.png; sourceTree = "<group>"; };
 		A999A98F159ED79200112FC6 /* LivingProof.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LivingProof.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A999A993159ED79200112FC6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A999A995159ED79200112FC6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -561,6 +563,7 @@
 		A92765BF15A764490028B21A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A990EB9E15E5C8F000EE4BF8 /* WU_logo_for_ipad.png */,
 				A9A0841D15E2B51900F29442 /* Official_WUSTL-2line-4c-SM.png */,
 				A9A0840915E2B3D400F29442 /* Official_WUSTL-2line-4c-LG.png */,
 				A99E0F1B15B0C82C00C8A3EE /* Background.png */,
@@ -1267,6 +1270,7 @@
 				A99E0F2D15B0C96200C8A3EE /* Icon-Small-50.png in Resources */,
 				A9A0840A15E2B3D400F29442 /* Official_WUSTL-2line-4c-LG.png in Resources */,
 				A9A0841E15E2B51900F29442 /* Official_WUSTL-2line-4c-SM.png in Resources */,
+				A990EB9F15E5C8F000EE4BF8 /* WU_logo_for_ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

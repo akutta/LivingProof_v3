@@ -56,8 +56,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Official_WUSTL-2line-4c-SM.png" id="eFK-no-bBB">
-                                <rect key="frame" x="160" y="408" width="155" height="48"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="WU_logo_for_ipad.png" id="eFK-no-bBB">
+                                <rect key="frame" x="180" y="411" width="135" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="10u-n4-YIm">
@@ -272,7 +272,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Official_WUSTL-2line-4c-SM.png" width="454" height="142"/>
+        <image name="WU_logo_for_ipad.png" width="216" height="72"/>
     </resources>
     <classes>
         <class className="AQGridView" superclassName="UIScrollView">
@@ -305,6 +305,7 @@
                 <relationship kind="action" name="disclaimerPushed:"/>
                 <relationship kind="action" name="privacyPushed:"/>
                 <relationship kind="outlet" name="activityView" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="buttonPlate" candidateClass="UIView"/>
                 <relationship kind="outlet" name="loadingLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="sortAge" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="sortCategory" candidateClass="UIButton"/>

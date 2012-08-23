@@ -283,8 +283,8 @@
 }
 
 - (void)displayPortrait_iPad {
-    sortAge.frame = CGRectMake(170, 807, 210, 93 );    
-    sortCategory.frame = CGRectMake(390, 807, 210, 93);
+    sortAge.frame = CGRectMake(170, 707, 210, 93 );    
+    sortCategory.frame = CGRectMake(390, 707, 210, 93);
     loadingLabel.frame = (CGRect){ CGPointMake(364, 878) ,loadingLabel.frame.size };
     activityView.frame = (CGRect){ CGPointMake(384, 849), activityView.frame.size };
     
@@ -295,8 +295,9 @@
     
     
     frame = buttonPlate.frame;
-    frame.origin.y = self.view.frame.size.height - frame.size.height;
-    frame.origin.x = 0;
+    frame.origin.y = sortAge.frame.origin.y + sortAge.frame.size.height;
+    float buttonWidth = buttonPlate.frame.size.width;
+    frame.origin.x = (self.view.frame.size.width - buttonWidth)/2;
     buttonPlate.frame = frame;
 }
 
@@ -322,8 +323,8 @@
 }
 
 - (void)displayLandscape_iPad {
-    sortAge.frame = CGRectMake(150, 573, 360, 90);
-    sortCategory.frame = CGRectMake(516, 573, 360, 90);
+    sortAge.frame = CGRectMake(150, 523, 360, 90);
+    sortCategory.frame = CGRectMake(516, 523, 360, 90);
     loadingLabel.frame = (CGRect){ CGPointMake(480, 630) ,loadingLabel.frame.size };;
     activityView.frame = (CGRect){ CGPointMake(500, 600), activityView.frame.size };;
     
@@ -333,8 +334,10 @@
     washULogo.frame = frame;
     
     frame = buttonPlate.frame;
-    frame.origin.y = self.view.frame.size.height - frame.size.height;
-    frame.origin.x = 0;
+    
+    frame.origin.y = sortAge.frame.origin.y + sortAge.frame.size.height;
+    float buttonWidth = buttonPlate.frame.size.width;
+    frame.origin.x = (self.view.frame.size.width - buttonWidth)/2;
     buttonPlate.frame = frame;
 }
 

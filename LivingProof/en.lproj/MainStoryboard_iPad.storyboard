@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="pKc-Lg-VQE">
     <dependencies>
+        <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
@@ -55,12 +56,12 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Official_WUSTL-2line-4c-LG.png" id="kU6-aL-BXF">
-                                <rect key="frame" x="501" y="0.0" width="267" height="74"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="WU_logo_for_ipad.png" id="kU6-aL-BXF">
+                                <rect key="frame" x="552" y="0.0" width="216" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" id="yrS-vk-pgI">
-                                <rect key="frame" x="0.0" y="856" width="152" height="148"/>
+                                <rect key="frame" x="248" y="724" width="272" height="91"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1D8-6i-HaX">
@@ -79,7 +80,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="62W-bf-d8m">
-                                        <rect key="frame" x="20" y="79" width="112" height="49"/>
+                                        <rect key="frame" x="140" y="20" width="112" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <state key="normal" title="Privacy">
@@ -352,7 +353,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Official_WUSTL-2line-4c-LG.png" width="979" height="309"/>
+        <image name="WU_logo_for_ipad.png" width="216" height="72"/>
     </resources>
     <classes>
         <class className="AQGridView" superclassName="UIScrollView">
