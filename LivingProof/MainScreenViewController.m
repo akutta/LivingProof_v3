@@ -422,20 +422,21 @@
 
 -(IBAction)disclaimerPushed:(id)sender {
     
-    NSString* disclaimer = @"Disclaimer and Limitation of Liability\n\n\
-        This mobile application (\“app\”) and all intellectual property rights related thereto are the property of The Washington University (\"WU\").\n\
-        \n\
-        \n\
-        Living Proof is an educational tool of Washington University in St. Louis and is intended for informational purposes only. It does not provide medical advice or services. Do not use the content to make a diagnosis, treat a health problem, or replace a doctor's judgment.\n\
-        \n\
-        \n\
-        The information in Living Proof is a summary intended to provide a broad understanding of disease information. WU MAKES NO WARRANTY OF ANY KIND REGARDING THIS APP AND/OR ANY MATERIALS PROVIDED IN THIS APP, ALL OF WHICH ARE PROVIDED ON AN “AS IS” BASIS.  WU DOES NOT WARRANT THE ACCURACY, COMPLETENESS, CURRENCY OR RELIABILITY OF ANY OF THE CONTENT OR DATA FOUND IN THIS APP AND WU EXPRESSLY DISCLAIMS ALL WARRANTIES AND CONDITIONS, INCLUDING IMPLIED WARRANTIES AND CONDITIONS OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT, AND THOSE ARISING BY STATUTE OR OTHERWISE IN LAW OR FROM A COURSE OF DEALING OR USAGE OF TRADE.\n\
-        \n\
-        The WU is not responsible for any damages or losses that result from use of Living Proof.\n\
-        \n\
-        You may email/share, print, or download information for non-commercial purposes only. Permission to reproduce, transmit, distribute or display the content for any other purpose requires prior written consent from Washington University in St. Louis.\n\
-        \n\
-        All content in this app is protected by copyright law, © 2012 The Washington University.";
+    
+    
+    NSString* disclaimer = @""
+        "Disclaimer and Limitation of Liability\n\n"
+        "This mobile application (\"app\") and all intellectual property rights related thereto are the property of The Washington University (\"WU\").\n"
+        "\n\n"
+        "Living Proof is an educational tool of Washington University in St. Louis and is intended for informational purposes only. It does not provide medical advice or services. Do not use the content to make a diagnosis, treat a health problem, or replace a doctor's judgment.\n"
+        "\n\n"
+        "The information in Living Proof is a summary intended to provide a broad understanding of disease information. WU MAKES NO WARRANTY OF ANY KIND REGARDING THIS APP AND/OR ANY MATERIALS PROVIDED IN THIS APP, ALL OF WHICH ARE PROVIDED ON AN “AS IS” BASIS.  WU DOES NOT WARRANT THE ACCURACY, COMPLETENESS, CURRENCY OR RELIABILITY OF ANY OF THE CONTENT OR DATA FOUND IN THIS APP AND WU EXPRESSLY DISCLAIMS ALL WARRANTIES AND CONDITIONS, INCLUDING IMPLIED WARRANTIES AND CONDITIONS OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT, AND THOSE ARISING BY STATUTE OR OTHERWISE IN LAW OR FROM A COURSE OF DEALING OR USAGE OF TRADE.\n"
+        "\n"
+        "The WU is not responsible for any damages or losses that result from use of Living Proof.\n"
+        "\n"
+        "You may email/share, print, or download information for non-commercial purposes only. Permission to reproduce, transmit, distribute or display the content for any other purpose requires prior written consent from Washington University in St. Louis.\n"
+        "\n"
+        "All content in this app is protected by copyright law, © 2012 The Washington University.";
     [self displayAlertViewWithText:disclaimer title:@"Disclaimer"];
 }
 
