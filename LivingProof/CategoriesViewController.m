@@ -81,7 +81,9 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Prevent iPhone orientation rotation
-    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPhone"] ) {
+    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPad"] ) {
+        return YES;
+    } else {
         if ( interfaceOrientation == UIInterfaceOrientationPortrait || 
             interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
         {
@@ -89,7 +91,6 @@
         }
         return NO;
     }
-    return YES;//(interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 #pragma mark UITableView

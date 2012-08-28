@@ -52,15 +52,17 @@
     self.navigationItem.rightBarButtonItem = homeButton;
     self.navigationItem.title = @"Living Proof";
     
-    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPhone"] ) {
-        NSLog(@"iPhone");    
-    } else {
+    
+    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPad"] ) {
+       
         self.gridView.backgroundColor = [UIColor clearColor];
         // Enable GridView
         self.gridView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
         self.gridView.autoresizesSubviews = YES;
         self.gridView.delegate = self;
         self.gridView.dataSource = self;
+    } else {
+        NSLog(@"iPhone/iPod");
     }
     
     youTube = [YouTubeInterface iYouTube];
@@ -86,7 +88,9 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Prevent iPhone orientation rotation
-    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPhone"] ) {
+    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPad"] ) {
+        return YES;//(interfaceOrientation == UIInterfaceOrientationPortrait);
+    } else {
         if ( interfaceOrientation == UIInterfaceOrientationPortrait || 
             interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
         {
@@ -94,8 +98,6 @@
         }
         return NO;
     }
-    
-    return YES;//(interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 #pragma mark UITableView

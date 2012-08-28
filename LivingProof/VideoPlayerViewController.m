@@ -31,7 +31,7 @@
         [view removeFromSuperview];
         [window addSubview:view];  
     } else {
-            if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPhone"] ) {
+            if ( !([[[UIDevice currentDevice] model] hasPrefix:@"iPad"]) ) {
                 [self updateLayout:UIInterfaceOrientationLandscapeLeft];
             }
     }
@@ -64,18 +64,7 @@
 	self.gridView.delegate = self;
 	self.gridView.dataSource = self;
     
-    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPhone"] ) {
-        if (UIDeviceOrientationIsPortrait([[UIDevice currentDevice] orientation]))
-        {
-            // More elegant method than changing the status bar orienation
-            UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-            UIView *view = [window.subviews objectAtIndex:0];
-            [view removeFromSuperview];
-            [window addSubview:view];
-        }
-        bDoOnce = YES;
-    } else {       
-        
+    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPad"] ) {
         [self setupGridView:12.0 borderWidth:2.0];
         
         [self updateLabels];    
@@ -87,6 +76,16 @@
         
         [self updateLayout_iPad:[UIApplication sharedApplication].statusBarOrientation];
         [self.view bringSubviewToFront:_gridView];
+    } else {       
+        if (UIDeviceOrientationIsPortrait([[UIDevice currentDevice] orientation]))
+        {
+            // More elegant method than changing the status bar orienation
+            UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+            UIView *view = [window.subviews objectAtIndex:0];
+            [view removeFromSuperview];
+            [window addSubview:view];
+        }
+        bDoOnce = YES;
 
     }
 }
@@ -140,12 +139,12 @@
 }
 
 -(void) updateYoutubeVideo:(UIInterfaceOrientation)orientation {
-    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPhone"] ) {
+    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPad"] ) {
+        [self updateYoutubeVideo_iPad:orientation];
+    } else {
         [self embedYouTube:[curVideo objectForKey:@"url"] frame:CGRectMake(5, 5, self.view.frame.size.width-10, self.view.frame.size.height-45)];
         
         [self.view bringSubviewToFront:bottomMenu];
-    } else {
-        [self updateYoutubeVideo_iPad:orientation];
     }
 }
 
@@ -258,7 +257,10 @@
 
 
 -(void) updateLayout:(UIInterfaceOrientation)orientation {
-    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPhone"] ) {
+    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPad"] ) {
+        [self updateLayout_iPad:orientation];
+        [self updateYoutubeVideo:[UIApplication sharedApplication].statusBarOrientation];
+    } else {
         // Setup Bottom Frame
         CGRect frame = bottomMenu.frame;
         //        frame.origin = CGPointMake(0, 236);
@@ -300,9 +302,6 @@
             [self updateYoutubeVideo:[UIApplication sharedApplication].statusBarOrientation];
             
         }
-    } else {
-        [self updateLayout_iPad:orientation];
-        [self updateYoutubeVideo:[UIApplication sharedApplication].statusBarOrientation];
     }
 }
 
@@ -348,15 +347,15 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Prevent iPhone orientation rotation out of landscape
-    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPhone"] ) {
-        if ( interfaceOrientation == UIInterfaceOrientationPortrait || 
-            interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
+    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPad"] ) { 
+        return YES;
+    } else {
+        if ( interfaceOrientation == UIInterfaceOrientationPortrait )
         {
             return NO;
         }
         return YES;
     }
-    return YES;
 }
 
 

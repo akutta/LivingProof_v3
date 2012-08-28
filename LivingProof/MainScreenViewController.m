@@ -141,10 +141,10 @@
 }
 
 - (void)setButtonLook:(UIButton*)button {
-    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPhone"] ) {
-        [self setButtonLook_iPhone:button];
-    } else {
+    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPad"] ) {
         [self setButtonLook_iPad:button];
+    } else {
+        [self setButtonLook_iPhone:button];
     }
     
     [button.layer setMasksToBounds:YES];
@@ -254,16 +254,15 @@
     [UIView setAnimationsEnabled:NO];
     
     //[self delegate].curOrientation = interfaceOrientation;
-    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPhone"] ) {
-        if ( interfaceOrientation == UIInterfaceOrientationPortrait || 
-            interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
+    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPad"] ) {
+        return YES;
+    } else {
+        if ( interfaceOrientation == UIInterfaceOrientationPortrait )
         {
             return YES;
         }
         return NO;
     }
-    
-    return YES;
 }
 
 //
@@ -303,12 +302,12 @@
 
 -(void)displayPortrait {
     NSLog(@"%@",[UIDevice currentDevice].model);
-     if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPhone"] ) {
-         NSLog(@"displayPortrait iPhone");
-         [self displayPortrait_iPhone];
-     } else {
-         NSLog(@"displayPortrait iPad");
-         [self displayPortrait_iPad];
+    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPad"] ) {
+        NSLog(@"displayPortrait iPad");
+        [self displayPortrait_iPad];
+    } else {
+        NSLog(@"displayPortrait iPhone");
+        [self displayPortrait_iPhone];
      }
     self.view.backgroundColor = portraitBackgroundImage;
 }
@@ -343,16 +342,14 @@
 }
 
 - (void)displayLandscape {    
-    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPhone"] ) {
-        // Only portrait enabled in iPhone
-        NSLog(@"displayPortrait iPhone (old Landscape)");
-        [self displayPortrait_iPhone];
-//        NSLog(@"displayLandscape iPhone");
-        //[self displayLandscape_iPhone];
-    } else {
+    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPad"] ) {
         NSLog(@"displayLandscape iPad");
         [self displayLandscape_iPad];
         self.view.backgroundColor = landscapeBackgroundImage;
+    } else {
+        // Only portrait enabled in iPhone
+        NSLog(@"displayPortrait iPhone (old Landscape)");
+        [self displayPortrait_iPhone];
     }
 }
 
@@ -363,12 +360,12 @@
 
     
     
-    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPhone"] ) {
-        [myTextView setFont:[UIFont systemFontOfSize:15.0]];
-        myTextView = [[UITextView alloc] initWithFrame:CGRectMake(12, 50, 260, 142)];
-    } else {
+    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPad"] ) {
         [myTextView setFont:[UIFont systemFontOfSize:20.0]];
         myTextView = [[UITextView alloc] initWithFrame:CGRectMake(12, 50, 520, 142)];
+    } else {
+        [myTextView setFont:[UIFont systemFontOfSize:15.0]];
+        myTextView = [[UITextView alloc] initWithFrame:CGRectMake(12, 50, 260, 142)];
     }
     
     
@@ -390,8 +387,7 @@
 }
 
 - (void)willPresentAlertView:(UIAlertView *)alertView {
-    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPhone"] ) {
-    } else {
+    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPad"] ) {
         CGRect frame = alertView.frame;
         frame.size.width += 260;
         frame.origin.x -= 130;
