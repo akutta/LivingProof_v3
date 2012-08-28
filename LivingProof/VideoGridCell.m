@@ -91,7 +91,7 @@
     if ( self ) {
         cellIdentifier = reuseIdentifier;
         
-        if ( [[[UIDevice currentDevice] name] hasPrefix:@"iPhone"] ) {
+        if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPhone"] ) {
             [self initFrame_iPhone:frame];
         } else {
             [self initFrame_iPad:frame];

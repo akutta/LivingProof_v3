@@ -31,7 +31,7 @@
         [view removeFromSuperview];
         [window addSubview:view];  
     } else {
-            if ( [[[UIDevice currentDevice] name] hasPrefix:@"iPhone"] ) {
+            if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPhone"] ) {
                 [self updateLayout:UIInterfaceOrientationLandscapeLeft];
             }
     }
@@ -64,7 +64,7 @@
 	self.gridView.delegate = self;
 	self.gridView.dataSource = self;
     
-    if ( [[[UIDevice currentDevice] name] hasPrefix:@"iPhone"] ) {
+    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPhone"] ) {
         if (UIDeviceOrientationIsPortrait([[UIDevice currentDevice] orientation]))
         {
             // More elegant method than changing the status bar orienation
@@ -140,7 +140,7 @@
 }
 
 -(void) updateYoutubeVideo:(UIInterfaceOrientation)orientation {
-    if ( [[[UIDevice currentDevice] name] hasPrefix:@"iPhone"] ) {
+    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPhone"] ) {
         [self embedYouTube:[curVideo objectForKey:@"url"] frame:CGRectMake(5, 5, self.view.frame.size.width-10, self.view.frame.size.height-45)];
         
         [self.view bringSubviewToFront:bottomMenu];
@@ -258,7 +258,7 @@
 
 
 -(void) updateLayout:(UIInterfaceOrientation)orientation {
-    if ( [[[UIDevice currentDevice] name] hasPrefix:@"iPhone"] ) {
+    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPhone"] ) {
         // Setup Bottom Frame
         CGRect frame = bottomMenu.frame;
         //        frame.origin = CGPointMake(0, 236);
@@ -348,7 +348,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Prevent iPhone orientation rotation out of landscape
-    if ( [[[UIDevice currentDevice] name] hasPrefix:@"iPhone"] ) {
+    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPhone"] ) {
         if ( interfaceOrientation == UIInterfaceOrientationPortrait || 
             interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
         {

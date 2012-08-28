@@ -141,7 +141,7 @@
 }
 
 - (void)setButtonLook:(UIButton*)button {
-    if ( [[[UIDevice currentDevice] name] hasPrefix:@"iPhone"] ) {
+    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPhone"] ) {
         [self setButtonLook_iPhone:button];
     } else {
         [self setButtonLook_iPad:button];
@@ -254,7 +254,7 @@
     [UIView setAnimationsEnabled:NO];
     
     //[self delegate].curOrientation = interfaceOrientation;
-    if ( [[[UIDevice currentDevice] name] hasPrefix:@"iPhone"] ) {
+    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPhone"] ) {
         if ( interfaceOrientation == UIInterfaceOrientationPortrait || 
             interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
         {
@@ -302,7 +302,8 @@
 }
 
 -(void)displayPortrait {
-     if ( [[[UIDevice currentDevice] name] hasPrefix:@"iPhone"] ) {
+    NSLog(@"%@",[UIDevice currentDevice].model);
+     if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPhone"] ) {
          NSLog(@"displayPortrait iPhone");
          [self displayPortrait_iPhone];
      } else {
@@ -342,7 +343,7 @@
 }
 
 - (void)displayLandscape {    
-    if ( [[[UIDevice currentDevice] name] hasPrefix:@"iPhone"] ) {
+    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPhone"] ) {
         // Only portrait enabled in iPhone
         NSLog(@"displayPortrait iPhone (old Landscape)");
         [self displayPortrait_iPhone];
@@ -362,7 +363,7 @@
 
     
     
-    if ( [[[UIDevice currentDevice] name] hasPrefix:@"iPhone"] ) {
+    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPhone"] ) {
         [myTextView setFont:[UIFont systemFontOfSize:15.0]];
         myTextView = [[UITextView alloc] initWithFrame:CGRectMake(12, 50, 260, 142)];
     } else {
@@ -389,7 +390,7 @@
 }
 
 - (void)willPresentAlertView:(UIAlertView *)alertView {
-    if ( [[[UIDevice currentDevice] name] hasPrefix:@"iPhone"] ) {
+    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPhone"] ) {
     } else {
         CGRect frame = alertView.frame;
         frame.size.width += 260;

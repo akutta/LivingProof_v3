@@ -86,7 +86,7 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Prevent iPhone orientation rotation
-    if ( [[[UIDevice currentDevice] name] hasPrefix:@"iPhone"] ) {
+    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPhone"] ) {
         if ( interfaceOrientation == UIInterfaceOrientationPortrait || 
             interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
         {

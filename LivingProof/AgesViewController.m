@@ -52,7 +52,7 @@
     self.navigationItem.rightBarButtonItem = homeButton;
     self.navigationItem.title = @"Living Proof";
     
-    if ( [[[UIDevice currentDevice] name] hasPrefix:@"iPhone"] ) {
+    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPhone"] ) {
         NSLog(@"iPhone");    
     } else {
         self.gridView.backgroundColor = [UIColor clearColor];
@@ -86,7 +86,7 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Prevent iPhone orientation rotation
-    if ( [[[UIDevice currentDevice] name] hasPrefix:@"iPhone"] ) {
+    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPhone"] ) {
         if ( interfaceOrientation == UIInterfaceOrientationPortrait || 
             interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
         {
