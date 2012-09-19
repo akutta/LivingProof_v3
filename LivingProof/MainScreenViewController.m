@@ -418,9 +418,6 @@
 }
 
 -(IBAction)disclaimerPushed:(id)sender {
-    
-    
-    
     NSString* disclaimer = @""
         "Disclaimer and Limitation of Liability\n\n"
         "This mobile application (\"app\") and all intellectual property rights related thereto are the property of The Washington University (\"WU\").\n"

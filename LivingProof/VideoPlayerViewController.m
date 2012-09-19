@@ -309,6 +309,33 @@
     [UIView setAnimationsEnabled:NO];
 }
 
+-(void)animateWindow {
+    
+    [UIView setAnimationsEnabled:YES];
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:1.0];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView  setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(finishedAnimation)];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    
+    // bottomMenu y locations:
+    //     Retracted = self.view.frame.size.height - 25;
+    //     Maximum =   self.view.frame.size.height - bottomMenu.frame.size.height
+    CGRect frame  = bottomMenu.frame;
+    
+    if ( frame.origin.y == self.view.frame.size.height - 25 ) {
+        frame.origin.y = self.view.frame.size.height - frame.size.height;
+        [relatedVideoLabel setText:@"Click to Retract Menu"];
+    } else {
+        frame.origin.y = self.view.frame.size.height - 25;
+        [relatedVideoLabel setText:@"Click for Related Videos"];                
+    }
+    bottomMenu.frame = frame;
+    [bottomMenu layoutSubviews];
+    [UIView commitAnimations];
+}
+
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     NSSet *allTouches = [event allTouches]; 
@@ -316,30 +343,7 @@
     { 
         CGPoint location = [touch locationInView:bottomMenu];
         if ( location.y >= 0 ) {
-            
-            [UIView setAnimationsEnabled:YES];
-            [UIView beginAnimations:nil context:nil];
-            [UIView setAnimationDuration:1.0];
-            [UIView setAnimationBeginsFromCurrentState:YES];
-            [UIView  setAnimationDelegate:self];
-            [UIView setAnimationDidStopSelector:@selector(finishedAnimation)];
-            [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-            
-            // bottomMenu y locations:
-            //     Retracted = self.view.frame.size.height - 25;
-            //     Maximum =   self.view.frame.size.height - bottomMenu.frame.size.height
-            CGRect frame  = bottomMenu.frame;
-            
-            if ( frame.origin.y == self.view.frame.size.height - 25 ) {
-                frame.origin.y = self.view.frame.size.height - frame.size.height;
-                [relatedVideoLabel setText:@"Click to Retract Menu"];
-            } else {
-                frame.origin.y = self.view.frame.size.height - 25;
-                [relatedVideoLabel setText:@"Click for Related Videos"];                
-            }
-            bottomMenu.frame = frame;
-            [bottomMenu layoutSubviews];
-            [UIView commitAnimations];
+            [self animateWindow];
         }
     }
 }
@@ -425,6 +429,9 @@
 
 - (void)gridView:(AQGridView *)aGidView didSelectItemAtIndex:(NSUInteger)index
 {  
+    if ( ![[[UIDevice currentDevice] model] hasPrefix:@"iPad"] )
+        [self animateWindow];
+    
     NSDictionary *video = [relatedVideos objectAtIndex:index];
     
     // log current video
