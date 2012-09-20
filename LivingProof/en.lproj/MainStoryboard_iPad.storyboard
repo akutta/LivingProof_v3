@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="pKc-Lg-VQE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="12C54" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="pKc-Lg-VQE">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
-        <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
     </dependencies>
     <scenes>
         <!--Main Screen View Controller-->
         <scene sceneID="4">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
                 <viewController id="2" customClass="MainScreenViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5">
                         <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
@@ -111,13 +109,13 @@
                         <outlet property="washULogo" destination="kU6-aL-BXF" id="Ndt-PC-PMt"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-12" y="-1243"/>
         </scene>
         <!--Ages View Controller-->
         <scene sceneID="Rf3-LD-U9j">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="arB-v0-Ok2" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="5KH-9v-Q4s" customClass="AgesViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eOV-q3-Sn8">
                         <rect key="frame" x="0.0" y="64" width="768" height="960"/>
@@ -137,13 +135,13 @@
                         <outlet property="gridView" destination="6a1-E4-rXv" id="CGP-St-oYV"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="arB-v0-Ok2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="980" y="-1987"/>
         </scene>
         <!--Video Selection View Controller-->
         <scene sceneID="5dd-Ig-PKK">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2bT-GC-Whf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="VideoSelectionViewController" id="R5S-4d-nwz" customClass="VideoSelectionViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5ka-Tf-yeJ">
                         <rect key="frame" x="0.0" y="64" width="768" height="960"/>
@@ -162,13 +160,13 @@
                         <outlet property="gridView" destination="eBf-eL-MzO" id="WPy-w4-ZQI"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2bT-GC-Whf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2092" y="-1204"/>
         </scene>
         <!--Video Player View Controller-->
         <scene sceneID="UjB-bK-wQI">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vwY-AV-NfI" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="VideoPlayerViewController" id="g8t-AN-cxa" customClass="VideoPlayerViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Lb-bd-QDl">
                         <rect key="frame" x="0.0" y="64" width="768" height="960"/>
@@ -307,13 +305,13 @@
                         <outlet property="videoTitle" destination="WLm-vF-nYc" id="1Ew-sQ-puZ"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vwY-AV-NfI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3178" y="-1204"/>
         </scene>
         <!--Categories View Controller-->
         <scene sceneID="9N9-ye-O1T">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HGd-Ra-XoQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="pY3-0v-6qb" customClass="CategoriesViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cWV-6O-Anx">
                         <rect key="frame" x="0.0" y="64" width="768" height="960"/>
@@ -333,13 +331,13 @@
                         <outlet property="gridView" destination="8AN-C0-7ud" id="UtF-LC-TlB"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HGd-Ra-XoQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="980" y="-540"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pPF-xC-lir">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vwF-lq-bX3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController definesPresentationContext="YES" id="pKc-Lg-VQE" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Pcv-g0-dqE">
                         <autoresizingMask key="autoresizingMask"/>
@@ -348,6 +346,7 @@
                         <segue destination="2" kind="relationship" relationship="rootViewController" id="P8z-bc-Nma"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vwF-lq-bX3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1094" y="-1243"/>
         </scene>
