@@ -6,6 +6,7 @@
 //  Copyright 2011 Student. All rights reserved.
 //
 
+#import <Parse/Parse.h>
 #import "YouTubeInterface.h"
 
 //#import "Video.h"
@@ -28,7 +29,10 @@
 
 #import "SVProgressHUD.h"
 
-#define YouTube_devKey @"AI39si73rPI3lBhtbSwjwML_FPEUeg7th7VQgaN3QplOaA5j9C7r-MbrP8LHwQ3ncIfMgIcevYzNpE83ynB69Uy2v-1aoq4PbQ"
+// old key
+//#define YouTube_devKey @"AI39si73rPI3lBhtbSwjwML_FPEUeg7th7VQgaN3QplOaA5j9C7r-MbrP8LHwQ3ncIfMgIcevYzNpE83ynB69Uy2v-1aoq4PbQ"
+
+#define YouTube_devKey @"AI39si4tflpH_h0PP98MlTGmgf1VrjB4XIbmDmG-lcHyixlq1U12eTdkPlJtD0LEjakZwFnJ4nChx6m-0edvXt82usacAYyzyQ"
 
 
 @interface YouTubeInterface (Private)
@@ -145,6 +149,7 @@ NSInteger compareViewCount(NSDictionary *firstVideo, NSDictionary *secondVideo, 
 
 - (void)loadVideoFeed
 {
+    NSLog(@"loadVideoFeed");
     //[SVProgressHUD showWithStatus:@"Loading"];
 
     // Ensure we initialize this
@@ -152,6 +157,7 @@ NSInteger compareViewCount(NSDictionary *firstVideo, NSDictionary *secondVideo, 
 
     // get the youtube service
     GDataServiceGoogleYouTube *service = [self youTubeService];
+    
     GDataServiceTicket *ticket;
     
     // construct the feed url
@@ -162,19 +168,38 @@ NSInteger compareViewCount(NSDictionary *firstVideo, NSDictionary *secondVideo, 
     //      Overall improvement of network speed
     GDataQueryYouTube *query = [GDataQueryYouTube youTubeQueryWithFeedURL:feedURL];
     
-    // 'next' Pages Used Reduced from 8 to 4.  Supposedly supports more but always 
+    // 'next' Pages Used Reduced from 8 to 4.  Supposedly supports more but always
     // returns an error when attempted >50.
     [query setMaxResults:50]; // IMPORTANT:  set to 50 for full testing.
     
-    // Replaces api call below 
+    // Replaces api call below
     // to increase number of queries per request
     //
     //  Increases effeciency
     ticket = [service fetchFeedWithQuery:query
-                                delegate:self 
+                                delegate:self
                        didFinishSelector:@selector(entryListFetchTicket:finishedWithFeed:error:)];
     
     [self setEntriesFetchTicket:ticket];
+}
+
+//
+// This is used to display the error that the application won't be able to load
+//
+-(void)displayYoutubeError {
+  
+    NSLog(@"displayError");
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"We're Sorry!" message:@"Unfortunately the LivingProof system is temporarily down.  Please try again later" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    
+    [alertView show];
+}
+
+#pragma mark -
+#pragma mark UIAlertViewDeletage
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    // Was considering force exiting but I will leave it for now.
 }
 
 #pragma mark -
@@ -198,9 +223,18 @@ NSInteger compareViewCount(NSDictionary *firstVideo, NSDictionary *secondVideo, 
         [service setIsServiceRetryEnabled:YES];
     }
     
-	[service setUserCredentialsWithUsername:@"livingproofapp" password:@"breastcancer"];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString* password = (NSString*)[defaults objectForKey:@"key"];
+    if ( password == nil ) {
+        NSLog(@"No Password Located\n\tUsing Default Password");
+        password = @"livingproofapp";
+    } else {
+        NSLog(@"Pass:  %@",password);
+    }
+    
+	[service setUserCredentialsWithUsername:@"livingproofapp" password:password];
     [service setYouTubeDeveloperKey:YouTube_devKey];
-	
+    
     return service;
 }
 
@@ -218,14 +252,39 @@ NSInteger compareViewCount(NSDictionary *firstVideo, NSDictionary *secondVideo, 
 - (void)entryListFetchTicket:(GDataServiceTicket *)ticket
             finishedWithFeed:(GDataFeedBase *)feed
                        error:(NSError *)error
-{   
+{
+    
+    static int numTries = 0;
+    
 	[self setEntriesFeed:feed];
 	[self setEntriesFetchError:error];
 	[self setEntriesFetchTicket:nil];
  	
 	if ( error != nil ) {
-        NSLog(@"Error: %@",[error localizedDescription]);
-
+        if ( [(NSString*)[[error userInfo] objectForKey:@"error"] isEqual:@"BadAuthentication"] ) {
+            
+            // Only one attempt at pulling pass from parse.
+            if ( numTries == 0 ) {
+                PFQuery *query = [PFQuery queryWithClassName:@"youtube"];
+                [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+                    if (!error) {
+                        numTries++;
+                        NSString* newPass = [object objectForKey:@"password"];
+                        NSLog(@"New Password:  %@",newPass);
+                        [[NSUserDefaults standardUserDefaults] setObject:newPass forKey:@"key"];
+                        [[NSUserDefaults standardUserDefaults] synchronize];
+                        [self loadVideoFeed];
+                    }
+                }];
+                
+                return;
+            }
+        } else
+            NSLog(@"Error: %@",[error localizedDescription]);
+        
+        // Display Error
+        [self displayYoutubeError];
+        
         // Not able to connect to internet
         internetConnected = NO;
         return;

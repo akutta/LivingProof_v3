@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "GDataYouTube.h"
 
-@interface YouTubeInterface : NSObject { 
+@interface YouTubeInterface : NSObject <UIAlertViewDelegate> {
     
     @private GDataFeedYouTubeVideo *mEntriesFeed;
     @private GDataServiceTicket *mEntriesFetchTicket;

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "YouTubeInterface.h"
+#import <Parse/Parse.h>
 
 @implementation AppDelegate
 
@@ -16,6 +17,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    [Parse setApplicationId:@"ID8xbakaoQpHdgzWwHMNUXEwxw4zHRohNDkTElQ7"
+                  clientKey:@"HfjcWNTAcQ3H4pcrjsKIexa7v0zsWs3eLa8VguqR"];
+    
     
     [[YouTubeInterface iYouTube] loadVideoFeed];
     
