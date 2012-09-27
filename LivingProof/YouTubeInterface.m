@@ -227,7 +227,7 @@ NSInteger compareViewCount(NSDictionary *firstVideo, NSDictionary *secondVideo, 
     NSString* password = (NSString*)[defaults objectForKey:@"key"];
     if ( password == nil ) {
         NSLog(@"No Password Located\n\tUsing Default Password");
-        password = @"livingproofapp";
+        password = @"fdsa8134CSIfdsSDF";
     } else {
         NSLog(@"Pass:  %@",password);
     }
@@ -262,7 +262,6 @@ NSInteger compareViewCount(NSDictionary *firstVideo, NSDictionary *secondVideo, 
  	
 	if ( error != nil ) {
         if ( [(NSString*)[[error userInfo] objectForKey:@"error"] isEqual:@"BadAuthentication"] ) {
-            
             // Only one attempt at pulling pass from parse.
             if ( numTries == 0 ) {
                 PFQuery *query = [PFQuery queryWithClassName:@"youtube"];
