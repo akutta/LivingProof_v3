@@ -306,10 +306,18 @@ NSInteger compareViewCount(NSDictionary *firstVideo, NSDictionary *secondVideo, 
     for ( GDataEntryYouTubeVideo *entry in entries )
     {
         
+        NSString *url = @"http://www.youtube.com/v/";
+        [url stringByAppendingString:[entry mediaGroup].videoID];
+        
         // Store necessary information about youtube Videos
         NSMutableDictionary *youtubeVideo = [[NSMutableDictionary alloc] initWithCapacity:10];
         [youtubeVideo setObject:[[entry title] stringValue] forKey:@"title"];
-        [youtubeVideo setObject:[[[entry links] objectAtIndex:0] valueForKey:@"href"] forKey:@"url"];
+        if ([[[UIDevice currentDevice]systemVersion]floatValue] >= 6.0) {
+            NSString *url = @"http://www.youtube.com/v/";
+            [url stringByAppendingString:[entry mediaGroup].videoID];
+        } else {
+            [youtubeVideo setObject:[[[entry links] objectAtIndex:0] valueForKey:@"href"] forKey:@"url"];
+        }
         [youtubeVideo setObject:[entry mediaGroup].mediaDescription.stringValue forKey:@"category"];
         [youtubeVideo setObject:[entry mediaGroup].duration forKey:@"time"];
         [youtubeVideo setObject:[entry mediaGroup].mediaDescription.stringValue forKey:@"category"];

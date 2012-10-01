@@ -120,6 +120,7 @@
 
 - (void)updateLabels
 {
+    NSLog(@"updateLabels");
     name.text =     [(NSDictionary*)[curVideo objectForKey:@"parsedKeys"] objectForKey:@"name"];
     age.text =      [(NSDictionary*)[curVideo objectForKey:@"parsedKeys"] objectForKey:@"age"];
     survivorshipLength.text = [(NSDictionary*)[curVideo objectForKey:@"parsedKeys"] objectForKey:@"survivorshipLength"];
@@ -364,18 +365,42 @@
 
 
 - (void)embedYouTube:(NSURL*)url frame:(CGRect)frame {
-    NSString* embedHTML = @""
-    "<html><head>"
-    "<style type=\"text/css\">"
-    "body {" 
-    "background-color: transparent;"
-    "color: white;"
-    "}" 
-    "</style>"
-    "</head><body style=\"margin:0\">" 
-    "</param><embed src=\"%@&autoplay=1\" type=\"application/x-shockwave-flash\" width=\"%0.0f\" height=\"%0.0f\"></embed></object>"
-    "</body></html>"; 
-    NSString* html = [NSString stringWithFormat:embedHTML, url, frame.size.width, frame.size.height];
+    
+    NSString* embedHTML;
+    NSString* html;
+    if ([[[UIDevice currentDevice]systemVersion]floatValue] >= 6.0) {
+        
+        embedHTML = @"\
+        <html><head>\
+        <style type=\"text/css\">\
+        body {\
+        background-color: transparent;\
+        color: white;\
+        }\
+        </style>\
+        </head><body style=\"margin:0\">\
+        <iframe title=\"YouTube Video\" class=\"youtube-player\" type=\"text/html\"\
+        width=\"%0.0f\" height=\"%0.0f\" src=\"%@\"\
+        frameborder=\"0\" allowFullScreen ></iframe>";
+        
+        html = [NSString stringWithFormat: embedHTML, frame.size.width,frame.size.height, url];
+        
+    }else{
+        embedHTML = @"\
+        <html><head>\
+        <style type=\"text/css\">\
+        body {\
+        background-color: transparent;\
+        color: white;\
+        }\
+        </style>\
+        </head><body style=\"margin:0\">\
+        <embed id=\"yt\" src=\"%@\" type=\"application/x-shockwave-flash\" \
+        width=\"%0.0f\" height=\"%0.0f\"></embed>\
+        </body></html>";
+        
+        html = [NSString stringWithFormat: embedHTML, url, frame.size.width,frame.size.height];
+    }
     
     if(videoView == nil) {
         videoView = [[UIWebView alloc] initWithFrame:frame];
@@ -389,6 +414,8 @@
     [videoView.layer setBorderWidth:2];
     [videoView.layer setCornerRadius:12.0];
     [videoView loadHTMLString:html baseURL:nil];
+    
+    NSLog(@"end embedYouTube");
 }
 
 - (NSUInteger) numberOfItemsInGridView: (AQGridView *) gridView {
