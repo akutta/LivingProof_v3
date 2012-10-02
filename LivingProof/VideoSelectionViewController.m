@@ -42,15 +42,31 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated {
+    BOOL bDoOnce = NO;
     self.myTableView.backgroundColor = [UIColor clearColor];
-    if ( ![[[UIDevice currentDevice] model] hasPrefix:@"iPad"] )
+    if ( ![[[UIDevice currentDevice] model] hasPrefix:@"iPad"] ) {
+        if ( ((MyNavController*)self.navigationController).landscapeOn )
+            bDoOnce = YES;
         ((MyNavController*)self.navigationController).landscapeOn = NO;
+    }
+    
+    if ( bDoOnce ) {
+        UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+        UIView *view = [window.subviews objectAtIndex:0];
+        [view removeFromSuperview];
+        [window addSubview:view];
+    
+        UIViewController *viewController = [[UIViewController alloc] init];
+        [self presentViewController:viewController animated:NO completion:^{
+            [viewController dismissModalViewControllerAnimated:NO];
+        }];
+    }
 
 }
 
 - (void)viewDidLoad
 {
-    self.view.frame = [[UIScreen mainScreen] applicationFrame];    
+    self.view.frame = [[UIScreen mainScreen] applicationFrame];
     
     self.gridView.backgroundColor = [UIColor clearColor];
     [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:26.0/255.0 green:32.0/255.0 blue:133.0/255.0 alpha:1.0]];
@@ -242,16 +258,19 @@
         
         [gridView deselectItemAtIndex:index animated:NO];
         [self.navigationController pushViewController:nextView animated:YES];
+        
     } else {
-        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
-        [self.navigationItem setBackBarButtonItem:backButton];
+//        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+//        [self.navigationItem setBackBarButtonItem:backButton];
         
         VideoPlayerViewController *nextView = [self.storyboard instantiateViewControllerWithIdentifier:@"VideoPlayerViewController"];        
         [nextView setCurVideo:[videos objectAtIndex:index]];
         [nextView setRelatedVideos:videos];
         
         [gridView deselectItemAtIndex:index animated:NO];
-        [self.navigationController pushViewController:nextView animated:NO];
+        
+        [self presentModalViewController:nextView animated:NO];
+        //[self.navigationController pushViewController:nextView animated:NO];
     }
 }
 

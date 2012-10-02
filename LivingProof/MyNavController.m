@@ -48,7 +48,7 @@
         return UIInterfaceOrientationMaskAll;
     }
     
-    return UIInterfaceOrientationMaskPortrait;
+//    return UIInterfaceOrientationMaskPortrait;
     
     if (landscapeOn) {
         NSLog(@"landscape only");
@@ -65,10 +65,13 @@
         return YES;
     }
     
-    return NO;
+//    return NO;
     NSLog(@"should Autorotate");
     
     if (landscapeOn) {
+        NSLog(@"landscape");
+        if ( UIInterfaceOrientationIsLandscape(ori) )
+            NSLog(@"YES");
         return UIInterfaceOrientationIsLandscape(ori);
     } else {
         return !UIInterfaceOrientationIsLandscape(ori);

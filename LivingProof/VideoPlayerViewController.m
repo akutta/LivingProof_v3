@@ -26,7 +26,6 @@
     if ( ![[[UIDevice currentDevice] model] hasPrefix:@"iPad"] )
         ((MyNavController*)self.navigationController).landscapeOn = YES;
 
-    [((MyNavController*)self.navigationController) shouldAutorotate];
     if ( bDoOnce ) {
         bDoOnce = NO;
 
@@ -34,14 +33,20 @@
         UIWindow *window = [[UIApplication sharedApplication] keyWindow];
         UIView *view = [window.subviews objectAtIndex:0];
         [view removeFromSuperview];
-        //[UIApplication sharedApplication].statusBarOrientation = UIInterfaceOrientationLandscapeLeft;
         [window addSubview:view];
+        
+        UIViewController *viewController = [[UIViewController alloc] init];
+        [self presentViewController:viewController animated:NO completion:^{
+            [viewController dismissModalViewControllerAnimated:NO];
+        }];
     } else {
-            if ( !([[[UIDevice currentDevice] model] hasPrefix:@"iPad"]) ) {
-                [self updateLayout:UIInterfaceOrientationLandscapeLeft];
-            }
+        if ( !([[[UIDevice currentDevice] model] hasPrefix:@"iPad"]) ) {
+            [self updateLayout:UIInterfaceOrientationLandscapeLeft];
+        }
     }
-    [self updateLayout:[UIApplication sharedApplication].statusBarOrientation];
+    
+    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPad"] )
+        [self updateLayout:[UIApplication sharedApplication].statusBarOrientation];
     [self.view bringSubviewToFront:_gridView];
 }
 
@@ -87,10 +92,15 @@
         if (UIDeviceOrientationIsPortrait([[UIDevice currentDevice] orientation]))
         {
             // More elegant method than changing the status bar orienation
+//            UIViewController *viewController = [[UIViewController alloc] init];
+//            [self presentViewController:viewController animated:NO completion:^{
+//                [viewController dismissModalViewControllerAnimated:NO];
+//            }];
+            /*
             UIWindow *window = [[UIApplication sharedApplication] keyWindow];
             UIView *view = [window.subviews objectAtIndex:0];
             [view removeFromSuperview];
-            [window addSubview:view];
+            [window addSubview:view];*/
         }
         bDoOnce = YES;
     }
@@ -148,6 +158,9 @@
     if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPad"] ) {
         [self updateYoutubeVideo_iPad:orientation];
     } else {
+        
+        NSLog(@"(%f,%f)",self.view.frame.size.width,self.view.frame.size.height);
+        
         [self embedYouTube:[curVideo objectForKey:@"url"] frame:CGRectMake(5, 5, self.view.frame.size.width-10, self.view.frame.size.height-45)];
         
         [self.view bringSubviewToFront:bottomMenu];
@@ -218,7 +231,7 @@
 
 -(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
     NSLog(@"will Rotate");
-    [super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation duration:duration];
+    [super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation duration:0.0];
 }
 
 -(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
@@ -248,7 +261,6 @@
         [self setTextPositions:759 y:(236 - 45)];
         
         // setup gridview
-        //        _gridView.frame = CGRectMake(204, (534-45), 617, 195);
         frame = _gridView.frame;
         frame.origin = CGPointMake(204, 534);
         _gridView.frame = frame;
@@ -273,6 +285,7 @@
         [self updateYoutubeVideo:[UIApplication sharedApplication].statusBarOrientation];
     } else {
         // Setup Bottom Frame
+        
         CGRect frame = bottomMenu.frame;
         
         if (_gridView == nil) {

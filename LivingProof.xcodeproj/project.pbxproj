@@ -2153,7 +2153,6 @@
 				A92765CA15A78B940028B21A /* VideoSelectionViewController.m */,
 				A99E0F2615B0C84400C8A3EE /* VideoPlayerViewController.m */,
 				A984E02415B74E0B00A7B8BE /* CustomTableViewCell.m */,
-				A9D8D8F9161A13D000D1819C /* MyNavController.h */,
 				A9D8D8FA161A13D000D1819C /* MyNavController.m */,
 			);
 			name = "Source Files";
@@ -2172,6 +2171,7 @@
 				A92765C915A78B940028B21A /* VideoSelectionViewController.h */,
 				A99E0F2515B0C84400C8A3EE /* VideoPlayerViewController.h */,
 				A984E02315B74E0B00A7B8BE /* CustomTableViewCell.h */,
+				A9D8D8F9161A13D000D1819C /* MyNavController.h */,
 			);
 			name = "Header Files";
 			sourceTree = "<group>";
