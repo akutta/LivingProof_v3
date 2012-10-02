@@ -55,7 +55,7 @@
     frame.origin.x = MAX_IMAGE_DIMENSION + 5;
     self.textLabel.frame = frame;
     
-    self.textLabel.textAlignment = UITextAlignmentCenter;
+    self.textLabel.textAlignment = NSTextAlignmentCenter;
     self.textLabel.numberOfLines = 3;
     self.textLabel.font = [UIFont systemFontOfSize:17.0];
 }

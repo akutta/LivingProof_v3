@@ -23,7 +23,9 @@
 @synthesize videoView, gridView = _gridView, curVideo, relatedVideos;
 
 -(void)viewWillAppear:(BOOL)animated {
-    ((MyNavController*)self.navigationController).landscapeOn = YES;
+    if ( ![[[UIDevice currentDevice] model] hasPrefix:@"iPad"] )
+        ((MyNavController*)self.navigationController).landscapeOn = YES;
+
     [((MyNavController*)self.navigationController) shouldAutorotate];
     if ( bDoOnce ) {
         bDoOnce = NO;
@@ -124,7 +126,6 @@
 
 - (void)updateLabels
 {
-    NSLog(@"updateLabels");
     name.text =     [(NSDictionary*)[curVideo objectForKey:@"parsedKeys"] objectForKey:@"name"];
     age.text =      [(NSDictionary*)[curVideo objectForKey:@"parsedKeys"] objectForKey:@"age"];
     survivorshipLength.text = [(NSDictionary*)[curVideo objectForKey:@"parsedKeys"] objectForKey:@"survivorshipLength"];
@@ -226,7 +227,6 @@
 }
 
 -(void)updateLayout_iPad:(UIInterfaceOrientation)orientation {
-    NSLog(@"updateLayout");
     if ( UIInterfaceOrientationIsPortrait(orientation) ) {
         NSLog(@"portrait");
         CGRect frame = videoTitle.frame;
@@ -268,7 +268,6 @@
 
 
 -(void) updateLayout:(UIInterfaceOrientation)orientation {
-    NSLog(@"updateLayout");
     if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPad"] ) {
         [self updateLayout_iPad:orientation];
         [self updateYoutubeVideo:[UIApplication sharedApplication].statusBarOrientation];
@@ -286,7 +285,7 @@
             [bottomMenu addSubview:_gridView];
             
             relatedVideoLabel = [[UILabel alloc] initWithFrame:CGRectMake(frame.size.width / 2 - 100, 5, 200, 15)];
-            [relatedVideoLabel setTextAlignment:UITextAlignmentCenter];
+            [relatedVideoLabel setTextAlignment:NSTextAlignmentCenter];
             [relatedVideoLabel setText:@"Click for Related Videos"];
             relatedVideoLabel.font = [UIFont fontWithName:maritalStatus.font.fontName size:10];
             [relatedVideoLabel setBackgroundColor:[bottomMenu backgroundColor]];
@@ -350,14 +349,6 @@
             [self animateWindow];
         }
     }
-}
-
-- (NSUInteger)supportedInterfaceOrientations {
-    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPad"] ) {
-        return UIInterfaceOrientationMaskAll;
-    }
-    NSLog(@"supportedInterfaceOrientations VPvc");
-    return UIInterfaceOrientationMaskLandscape;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -425,8 +416,6 @@
     [videoView.layer setBorderWidth:2];
     [videoView.layer setCornerRadius:12.0];
     [videoView loadHTMLString:html baseURL:nil];
-    
-    NSLog(@"end embedYouTube");
 }
 
 - (NSUInteger) numberOfItemsInGridView: (AQGridView *) gridView {

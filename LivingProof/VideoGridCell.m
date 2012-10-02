@@ -57,8 +57,8 @@
     
     title.adjustsFontSizeToFitWidth = YES;              // Set to be multiline
     title.numberOfLines = 3;                           // Set to use as many lines as needed (3 max i think)
-    title.textAlignment = UITextAlignmentCenter;       // Center the text
-    title.minimumFontSize = 10.0;
+    title.textAlignment = NSTextAlignmentCenter;       // Center the text
+//    title.minimumFontSize = 10.0;
     
     self.backgroundColor = [UIColor clearColor];
     self.contentView.backgroundColor = self.backgroundColor;

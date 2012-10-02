@@ -34,7 +34,8 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated {
-    ((MyNavController*)self.navigationController).landscapeOn = NO;
+    if ( ![[[UIDevice currentDevice] model] hasPrefix:@"iPad"] )
+        ((MyNavController*)self.navigationController).landscapeOn = NO;
     self.navigationController.navigationBarHidden = NO;
     self.myTableView.backgroundColor = [UIColor clearColor];
 }
@@ -84,14 +85,6 @@
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
-}
-
-- (NSUInteger)supportedInterfaceOrientations {
-        NSLog(@"supprotedInterfaceOrientations Agevc");
-    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPad"] ) {
-        return UIInterfaceOrientationMaskAll;
-    }
-    return UIInterfaceOrientationMaskPortrait;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

@@ -193,7 +193,9 @@
     
     self.navigationController.navigationBarHidden = YES;
     
-    ((MyNavController*)self.navigationController).landscapeOn = NO;
+    
+    if ( ![[[UIDevice currentDevice] model] hasPrefix:@"iPad"] )
+        ((MyNavController*)self.navigationController).landscapeOn = NO;
     
 //    if ( UIInterfaceOrientationIsPortrait(self.interfaceOrientation) ) {
 //        [self displayPortrait];
@@ -252,14 +254,6 @@
         return YES;
     }
     return NO;
-}
-
-- (NSUInteger)supportedInterfaceOrientations {
-        NSLog(@"supprotedInterfaceOrientations MSvc");
-    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPad"] ) {
-        return UIInterfaceOrientationMaskAll;
-    }
-    return UIInterfaceOrientationMaskPortrait;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -383,7 +377,7 @@
     }
     
     
-    [myTextView setTextAlignment:UITextAlignmentLeft];
+    [myTextView setTextAlignment:NSTextAlignmentLeft];
     [myTextView setEditable:NO];
     
     myTextView.layer.borderWidth = 2.0f;
@@ -410,7 +404,7 @@
         UILabel *tempTitle = [[UILabel alloc] initWithFrame:CGRectMake(10,20,350, 20)];
         tempTitle.backgroundColor = [UIColor clearColor];
         tempTitle.textColor = [UIColor whiteColor];
-        tempTitle.textAlignment = UITextAlignmentCenter;
+        tempTitle.textAlignment = NSTextAlignmentCenter;
         tempTitle.numberOfLines = 1;
         tempTitle.font = [UIFont boldSystemFontOfSize:18];
         tempTitle.text = alertView.title;
