@@ -12,6 +12,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "SDWebImageManager.h"
 #import "UIImageView+WebCache.h"
+#import "MyNavController.h"
 
 @interface VideoPlayerViewController ()
 
@@ -22,6 +23,8 @@
 @synthesize videoView, gridView = _gridView, curVideo, relatedVideos;
 
 -(void)viewWillAppear:(BOOL)animated {
+    ((MyNavController*)self.navigationController).landscapeOn = YES;
+    [((MyNavController*)self.navigationController) shouldAutorotate];
     if ( bDoOnce ) {
         bDoOnce = NO;
 
@@ -29,7 +32,8 @@
         UIWindow *window = [[UIApplication sharedApplication] keyWindow];
         UIView *view = [window.subviews objectAtIndex:0];
         [view removeFromSuperview];
-        [window addSubview:view];  
+        //[UIApplication sharedApplication].statusBarOrientation = UIInterfaceOrientationLandscapeLeft;
+        [window addSubview:view];
     } else {
             if ( !([[[UIDevice currentDevice] model] hasPrefix:@"iPad"]) ) {
                 [self updateLayout:UIInterfaceOrientationLandscapeLeft];
@@ -46,6 +50,7 @@
 
 - (void)viewDidLoad
 {
+    NSLog(@"viewDidLoad");
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
@@ -86,7 +91,6 @@
             [window addSubview:view];
         }
         bDoOnce = YES;
-
     }
 }
 
@@ -211,7 +215,13 @@
     [self setTextPositions_iPad:x y:y];
 }
 
+-(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    NSLog(@"will Rotate");
+    [super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation duration:duration];
+}
+
 -(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    NSLog(@"didRotate");
     [self updateLayout:[UIApplication sharedApplication].statusBarOrientation];
 }
 
@@ -258,20 +268,13 @@
 
 
 -(void) updateLayout:(UIInterfaceOrientation)orientation {
+    NSLog(@"updateLayout");
     if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPad"] ) {
         [self updateLayout_iPad:orientation];
         [self updateYoutubeVideo:[UIApplication sharedApplication].statusBarOrientation];
     } else {
         // Setup Bottom Frame
         CGRect frame = bottomMenu.frame;
-        //        frame.origin = CGPointMake(0, 236);
-        //        bottomMenu.frame = frame;
-        
-//        
-//        if ( infoButton == nil ) {
-//            infoButton = [[UIButton alloc] initWithFrame:CGRectMake(frame.size.width * 5/6, 5, frame.size.width/6, frame.size.height - 10)];
-//            [bottomMenu addSubview:infoButton];
-//        }
         
         if (_gridView == nil) {
             [self.view bringSubviewToFront:bottomMenu];
@@ -349,6 +352,13 @@
     }
 }
 
+- (NSUInteger)supportedInterfaceOrientations {
+    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPad"] ) {
+        return UIInterfaceOrientationMaskAll;
+    }
+    NSLog(@"supportedInterfaceOrientations VPvc");
+    return UIInterfaceOrientationMaskLandscape;
+}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Prevent iPhone orientation rotation out of landscape
@@ -369,7 +379,6 @@
     NSString* embedHTML;
     NSString* html;
     if ([[[UIDevice currentDevice]systemVersion]floatValue] >= 6.0) {
-        
         embedHTML = @"\
         <html><head>\
         <style type=\"text/css\">\
@@ -382,6 +391,8 @@
         <iframe title=\"YouTube Video\" class=\"youtube-player\" type=\"text/html\"\
         width=\"%0.0f\" height=\"%0.0f\" src=\"%@\"\
         frameborder=\"0\" allowFullScreen ></iframe>";
+        
+        /*<iframe width="420" height="315" src="http://www.youtube.com/embed/lnhJkZXJJjk" frameborder="0" allowfullscreen></iframe>*/
         
         html = [NSString stringWithFormat: embedHTML, frame.size.width,frame.size.height, url];
         

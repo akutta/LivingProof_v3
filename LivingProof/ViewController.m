@@ -26,6 +26,22 @@
     // Release any retained subviews of the main view.
 }
 
+-(BOOL)shouldAutorotate {
+    NSLog(@"shouldAutorotate - vc");
+    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPad"] ) {
+        return YES;
+    }
+    return NO;
+}
+
+- (NSUInteger)supportedInterfaceOrientations {
+    NSLog(@"supportedInterfaceOrientations vc");
+    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPad"] ) {
+        return UIInterfaceOrientationMaskAll;
+    }
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {

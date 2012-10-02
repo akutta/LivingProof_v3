@@ -10,7 +10,7 @@
 #import "YouTubeInterface.h"
 #import "VideoGridCell.h"
 #import "VideoSelectionViewController.h"
-
+#import "MyNavController.h"
 
 #import "SDWebImageManager.h"
 #import "UIImageView+WebCache.h"
@@ -34,6 +34,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated {
+    ((MyNavController*)self.navigationController).landscapeOn = NO;
     self.navigationController.navigationBarHidden = NO;
     self.myTableView.backgroundColor = [UIColor clearColor];
 }
@@ -83,6 +84,14 @@
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+}
+
+- (NSUInteger)supportedInterfaceOrientations {
+        NSLog(@"supprotedInterfaceOrientations Agevc");
+    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPad"] ) {
+        return UIInterfaceOrientationMaskAll;
+    }
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

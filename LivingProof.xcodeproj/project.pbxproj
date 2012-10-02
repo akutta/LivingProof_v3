@@ -372,6 +372,7 @@
 		A9B300271614E7BC00850100 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9B300261614E7BC00850100 /* MobileCoreServices.framework */; };
 		A9B300291614E7C600850100 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9B300281614E7C600850100 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A9B3002B1614E7CE00850100 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9B3002A1614E7CE00850100 /* StoreKit.framework */; };
+		A9D8D8FB161A13D000D1819C /* MyNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D8D8FA161A13D000D1819C /* MyNavController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1116,6 +1117,8 @@
 		A9B300261614E7BC00850100 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		A9B300281614E7C600850100 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		A9B3002A1614E7CE00850100 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		A9D8D8F9161A13D000D1819C /* MyNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNavController.h; sourceTree = "<group>"; };
+		A9D8D8FA161A13D000D1819C /* MyNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyNavController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2150,6 +2153,8 @@
 				A92765CA15A78B940028B21A /* VideoSelectionViewController.m */,
 				A99E0F2615B0C84400C8A3EE /* VideoPlayerViewController.m */,
 				A984E02415B74E0B00A7B8BE /* CustomTableViewCell.m */,
+				A9D8D8F9161A13D000D1819C /* MyNavController.h */,
+				A9D8D8FA161A13D000D1819C /* MyNavController.m */,
 			);
 			name = "Source Files";
 			sourceTree = "<group>";
@@ -2642,6 +2647,7 @@
 				A9658E6C160BB5E200332F7F /* GDataYouTubeStatistics.m in Sources */,
 				A9658E74160BB5F900332F7F /* GDataFramework.m in Sources */,
 				A9658E75160BB5F900332F7F /* GDataUtilities.m in Sources */,
+				A9D8D8FB161A13D000D1819C /* MyNavController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

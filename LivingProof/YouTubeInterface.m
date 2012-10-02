@@ -306,7 +306,8 @@ NSInteger compareViewCount(NSDictionary *firstVideo, NSDictionary *secondVideo, 
     for ( GDataEntryYouTubeVideo *entry in entries )
     {
         
-        NSString *url = @"http://www.youtube.com/v/";
+        //<iframe width="420" height="315" src="http://www.youtube.com/embed/lnhJkZXJJjk" frameborder="0" allowfullscreen></iframe>
+        NSString *url = @"http://www.youtube.com/embed/";
         [url stringByAppendingString:[entry mediaGroup].videoID];
         
         // Store necessary information about youtube Videos

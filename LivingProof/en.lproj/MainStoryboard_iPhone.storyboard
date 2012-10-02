@@ -254,10 +254,10 @@
             </objects>
             <point key="canvasLocation" x="1465" y="-23"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--My Nav Controller-->
         <scene sceneID="Hol-J5-aqJ">
             <objects>
-                <navigationController definesPresentationContext="YES" id="RE2-hI-kaD" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" id="RE2-hI-kaD" customClass="MyNavController" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="en9-2v-RmG">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -310,6 +310,9 @@
                 <relationship kind="outlet" name="sortCategory" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="washULogo" candidateClass="UIImageView"/>
             </relationships>
+        </class>
+        <class className="MyNavController" superclassName="UINavigationController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyNavController.h"/>
         </class>
         <class className="VideoPlayerViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VideoPlayerViewController.h"/>

@@ -9,6 +9,7 @@
 #import "MainScreenViewController.h"
 //#import "CategoriesViewController.h"
 //#import "AgesViewController.h"
+#import "MyNavController.h"
 #import "YouTubeInterface.h"
 #import <QuartzCore/QuartzCore.h>
 
@@ -192,6 +193,7 @@
     
     self.navigationController.navigationBarHidden = YES;
     
+    ((MyNavController*)self.navigationController).landscapeOn = NO;
     
 //    if ( UIInterfaceOrientationIsPortrait(self.interfaceOrientation) ) {
 //        [self displayPortrait];
@@ -244,12 +246,24 @@
     // e.g. self.myOutlet = nil;
 }
 
-//- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-//    [UIView setAnimationsEnabled:YES];
-//}
+-(BOOL)shouldAutorotate {
+    NSLog(@"shouldAutorotate - msvc");
+    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPad"] ) {
+        return YES;
+    }
+    return NO;
+}
+
+- (NSUInteger)supportedInterfaceOrientations {
+        NSLog(@"supprotedInterfaceOrientations MSvc");
+    if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPad"] ) {
+        return UIInterfaceOrientationMaskAll;
+    }
+    return UIInterfaceOrientationMaskPortrait;
+}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{   
+{
     // Return YES for supported orientations
     [UIView setAnimationsEnabled:NO];
     
