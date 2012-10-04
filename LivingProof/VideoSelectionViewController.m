@@ -269,8 +269,11 @@
         
         [gridView deselectItemAtIndex:index animated:NO];
         
-        [self presentModalViewController:nextView animated:NO];
-        //[self.navigationController pushViewController:nextView animated:NO];
+        if ( [[[UIDevice currentDevice] model] hasPrefix:@"iPad"] ) {
+            [self.navigationController pushViewController:nextView animated:NO];
+        } else {
+            [self presentModalViewController:nextView animated:NO];
+        }
     }
 }
 
