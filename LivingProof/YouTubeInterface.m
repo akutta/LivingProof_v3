@@ -308,14 +308,14 @@ NSInteger compareViewCount(NSDictionary *firstVideo, NSDictionary *secondVideo, 
         
         //<iframe width="420" height="315" src="http://www.youtube.com/embed/lnhJkZXJJjk" frameborder="0" allowfullscreen></iframe>
         NSString *url = @"http://www.youtube.com/embed/";
-        [url stringByAppendingString:[entry mediaGroup].videoID];
+//        NSString *url = @"http://www.youtube.com/v/";
+        url = [url stringByAppendingString:[entry mediaGroup].videoID];
         
         // Store necessary information about youtube Videos
         NSMutableDictionary *youtubeVideo = [[NSMutableDictionary alloc] initWithCapacity:10];
         [youtubeVideo setObject:[[entry title] stringValue] forKey:@"title"];
         if ([[[UIDevice currentDevice]systemVersion]floatValue] >= 6.0) {
-            NSString *url = @"http://www.youtube.com/v/";
-            [url stringByAppendingString:[entry mediaGroup].videoID];
+            [youtubeVideo setObject:url forKey:@"url"];
         } else {
             [youtubeVideo setObject:[[[entry links] objectAtIndex:0] valueForKey:@"href"] forKey:@"url"];
         }
